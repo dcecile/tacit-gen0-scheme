@@ -1,0 +1,7 @@
+;;; "usercat": SLIB catalog additions.     -*-scheme-*-
+(
+  (srfi-26 macro "srfi-26.scm")
+  (prototypes macro "prototypes.scm")
+  (synops macro "synops.scm")
+)
+; vim: filetype=scheme:autoindent:softtabstop=2:shiftwidth=2:
