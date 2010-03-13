@@ -1,0 +1,127 @@
+- C: printf
+  C++: cout
+  Perl6: say
+  Cottontail: say
+
+- Python: log
+  Cottontail: note
+
+- C: function
+  Java: method
+  Scheme: procedure, lambda
+  Haskell: function
+  Cottontail: function
+
+- C: switch/case/default
+  Haskell: case of
+  Perl6: given/when
+  Scala: match/case
+  Cottontail: matches
+
+- Haskell: case of
+  Scala: 
+  Cottontail: resolves/to-
+
+- Scheme: cond/else
+  Cottontail: when/else
+  
+- Java: try/catch/finally
+  Python: try/catch/ensure
+  Cottontail: try/run/on-error/ensure (always?)
+
+- Haskell: map
+  Python: dict
+  Cottontail: dict
+
+- Python: list
+  Cottontail: list
+
+- Haskell: tuple
+  Cottontail: list
+
+- Haskell: IORef
+  Cottontail: share/.ref
+
+- Haskell: mapM_
+  Cottontail: each
+
+- Haskell: show/read
+  Python: pickle/unpickle
+  Cottontail: freeze/unfreeze
+
+- [Javascript, Python]: +
+  Haskell: ++
+  Perl6: ~
+  Cottontail: cat
+
+- [C, Haskell]: &&
+  Python: and
+  Cottontail: and
+
+- Haskell: foldl0
+  Scheme: fold
+  Cottontail: reduce
+
+- [C#, Python]: format
+  C: sprintf
+  Cottontail: adlib
+
+- C: null
+  Haskell: nothing
+  Python: nil
+  Perl6: undef
+  Cottontail: nothing
+
+- C: void
+  Haskell: unit
+  Python: pass
+  Cottontail: pass, blank
+
+- [Java, Haskell, Python]: import
+  C: include
+  C#: using
+  Perl6: use
+  Cottontail: use
+
+- Perl6: temp
+  Cottontail: shadow
+
+- Java: instance variable
+  Perl6: property
+  Cottontail: property
+
+- C: ==
+  Haskell: ==
+  Perl6: ==, eq
+  Scheme: =, eq?, eqv?, equal?
+  Cottontail: eq
+
+- [C++, C#]: namespace, class
+  C: header
+  Haskell: module
+  Perl6: package, namespace, class
+  Cottontail: module
+
+- [C, Java, Python, Haskell]: library
+  Perl6: module
+  Cottontail: library
+
+- C#: partial
+  Haskell: module module
+  Perl6: use export
+  Cottontail: reroot, link, extend-module?
+
+- Perl6: need
+  Haskell: import qualified as
+  Cottontail: use as
+
+- C++: overload, specialization
+  Perl6: overload, multi
+  Haskell: instance, overload, pattern matching
+  Cottontail: another definition, attach-to, homonym
+
+- [Scheme, Perl6, C#]: ()
+  Haskell: <nothing>
+  Cottontail: do
+
+

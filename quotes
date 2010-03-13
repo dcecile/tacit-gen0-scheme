@@ -1,0 +1,107 @@
+- quote: 
+    And you have never found yourself hopping mad because there is some function
+    that *is* available for lists but *isn't* available for strings so you have
+    to do (list->string ... (string->list ...) ...) just to patch around this.
+  attr: Richard A. O'Keefe
+  source: http://www.erlang.org/pipermail/erlang-questions/2008-April/034204.html
+
+- quote:
+    It is better to have 100 functions operate on one data structure
+    than 10 functions on 10 data structures.
+  attr: Alan Perlis
+  source: http://www-pu.informatik.uni-tuebingen.de/users/klaeren/epigrams.html
+
+- quote:
+    We're all consenting adults here.
+  attr: Pythonic myth
+  source: http://mail.python.org/pipermail/tutor/2003-October/025932.html
+
+- quote:
+    In a large application, a good implementation of GC will be more
+    efficient than an equivalently-good implementation of malloc/free.
+    This is because large applications have nontrivial object life cycles,
+    and so you end up spending all of your time trying to figure out what
+    exactly those life cycles are. With GC, you'll get your program
+    written faster, and it'll be more efficient to boot.
+  attr: Jamie Zawinski
+  source: http://www.jwz.org/doc/gc.html
+
+- quote:
+    This book considers how dynamic memory can be recycled automatically
+    to guarantee error-free memory management.
+  attr: Richard Jones
+  source: http://www.cs.kent.ac.uk/people/staff/rej/gcbook/gcbook.html
+
+- quote:
+    Avoid success at all costs.
+  attr: Simon Peyton Jones
+  source: http://www.simple-talk.com/opinion/geek-of-the-week/simon-peyton-jones-geek-of-the-week/
+
+- quote:
+    Lisp programmers did not adopt the functional style purely for
+    aesthetic reasons. They use it because it makes their work easier. In
+    Lisp’s dynamic environment, functional programs can be written with
+    unusual speed, and at the same time, can be unusually reliable.
+  attr: Paul Graham
+  source: http://www.paulgraham.com/onlisp.html
+
+- quote:
+    We don't expect a five-year-old to speak with the same diction as a
+    fifty-year-old.
+  attr: Larry Wall
+  source: http://www.wall.org/~larry/keynote/keynote.html
+
+- quote:
+    It's easy to learn to drive a golf cart, but it's hard to express
+    yourself in one.
+  attr: Larry Wall
+  source: http://www.wall.org/~larry/natural.html
+
+- quote:
+    People thrive on ambiguity, as long as it is quickly resolved.
+    Generally, within a natural language, ambiguity is resolved rapidly
+    using recently spoken words and topics.
+  attr: Larry Wall
+  source: http://www.wall.org/~larry/natural.html
+
+- quote:
+    Language is not the level at which we should enforce "good thoughts",
+    if we want our language to be maximally useful. You can't enforce
+    morality by syntax.
+  attr: Larry Wall
+  source: http://www.wall.org/~larry/keynote/keynote.html
+
+- quote:
+    Ducts shouldn't look like girders, and girders shouldn't look like
+    ducts. Neither of those should look like water pipes, and it's really
+    important that water pipes not look like sewer pipes. Or smell like
+    sewer pipes.
+  attr: Larry Wall
+  source: http://www.wall.org/~larry/pm.html
+
+- quote:
+    Look at the big picture. Don't focus in on two or three things to the
+    exclusion of other things. Keep everything in context. Don't go out of
+    your way to justify stuff that's obviously cool. Don't ridicule ideas
+    merely because they're not the latest and greatest. Pick your own
+    fashions. Don't let someone else tell you what you should like. 'Tsall
+    good.
+  attr: Larry Wall
+  source: http://www.wall.org/~larry/pm.html
+
+- quote:
+    Huffman invented a method of data compaction in which common
+    characters are represented by a small number of bits, and rarer
+    characters are represented by more bits. The principle is more
+    general, however, and language designers would do well to pay
+    attention to the "other" Perl slogan: Easy things should be easy, and
+    hard things should be possible.
+  attr: Larry Wall
+  source: http://dev.perl.org/perl6/doc/design/apo/A05.html
+
+- quote:
+    If human language has a function at all it's for expression of thought.
+  attr: Noam Chomsky
+  source: http://www.nancho.net/advisors/chomsky.html
+
+

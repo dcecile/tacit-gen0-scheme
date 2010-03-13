@@ -65,7 +65,8 @@
 (define-syntax @
   (syntax-rules ()
     ((@ key prototype args ...)
-      ((: key prototype) prototype args ...))))
+      (let ((computed-prototype prototype))
+        ((: key computed-prototype) computed-prototype args ...)))))
 
 (define-syntax make
   (syntax-rules ()
