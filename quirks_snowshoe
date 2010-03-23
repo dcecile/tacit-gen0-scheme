@@ -1,0 +1,6 @@
+- duck typing: extensible like C++
+- focus on properties: there's behaviour, and there's data
+- one language: fewer server or client -specific investments
+- lispy: no pitfalls, flexible langauge development
+- unnested bindings: I just want a new variable
+- purity: please no object webs

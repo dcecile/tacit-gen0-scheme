@@ -6,5 +6,7 @@
 - FFI: it's not a vacuum
 - interactive: pause the program, not the programmer
 - performance: no expressivity divides
-- values: local working set, distinct copies
-- RPN: no operators, good partial application for HOFs
+- values: local working set, independent copies
+- RPN: no operators, good partial application for HOFs, reading order transformations
+- scoped global state: monads and DSLs for the rest of us
+- localized syntaxes: for the rest of the world

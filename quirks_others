@@ -1,0 +1,25 @@
+APL:
+- symbolic-spatial notation: it's about data flow
+Python:
+- significant whitespace: there's one good way to do it
+Smalltalk:
+- everything is an object: consistency and extensibility
+C++:
+- don't pay for what you don't use: performance control
+- generics: sometimes static classes don't work
+Lisp:
+- code is data, data is code: the language designer doesn't know best
+Haskell:
+- pure laziness: equational reasoning always works, no side effects
+Java:
+- checked arrays: safety over speed
+Erlang:
+- isolation concurrency: the only way to model concurrent activities
+- data messages: it's how interop happens
+- generally pure code: the best way to get reliability
+Scala:
+- type calculus: more types can solve our problems
+Forth:
+- RPN: it doesn't need a clever compiler
+Eiffel:
+- design by contract: the only way to think about code
