@@ -104,4 +104,32 @@
   attr: Noam Chomsky
   source: http://www.nancho.net/advisors/chomsky.html
 
+- quote:
+    I eventually wound up using Python (actually, Jython) for a ton of my
+    code, and it was far more succinct and flexible than anything I wrote
+    in Java. But I was foolishly worried about performance, and as a
+    result I wound up writing at least half the high-level game logic in
+    Java and piling on hundreds of thousands of lines of getProperty and
+    setProperty code. And now the system is hard to optimize; it would
+    have been much easier if I'd had a cleaner separation of game-engine
+    infrastructure from "scripty" game code.
+  attr: Steve Yegge
+  source: http://steve-yegge.blogspot.com/2008/10/universal-design-pattern.html
+
+- quote:
+    Lua is an extension programming language designed to support general
+    procedural programming with data description facilities. It also
+    offers good support for object-oriented programming, functional
+    programming, and data-driven programming. Lua is intended to be used
+    as a powerful, light-weight scripting language for any program that
+    needs one. Lua is implemented as a library, written in clean C (that
+    is, in the common subset of ANSI C and C++).
+  attr: Roberto Ierusalimschy, Luiz Henrique de Figueiredo, Waldemar Celes
+  source: http://www.lua.org/manual/5.1/manual.html
+
+- quote:
+    Generic Programming has nothing to do with run time vs. compile time.
+  attr: Alexander Stepanov
+  source: http://www.stlport.org/resources/StepanovUSA.html
+
 

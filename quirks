@@ -1,0 +1,10 @@
+- duck typing: extensible like C++
+- connoted types: no restrictions on genericity
+- focus on properties: there's behaviour, and there's data
+- significant whitespace: don't torture the beginners
+- purity: please no object webs
+- FFI: it's not a vacuum
+- interactive: pause the program, not the programmer
+- performance: no expressivity divides
+- values: local working set, distinct copies
+- RPN: no operators, good partial application for HOFs

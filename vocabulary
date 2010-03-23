@@ -54,6 +54,13 @@
   Perl6: ~
   Cottontail: cat
 
+- Haskell: concat
+  Python: chain
+  Cottontail: join
+
+- Python: join
+  Cottontail: join-with
+
 - [C, Haskell]: &&
   Python: and
   Cottontail: and
@@ -115,13 +122,32 @@
   Haskell: import qualified as
   Cottontail: use as
 
+- Python: from import
+  Cottontail: use from
+
 - C++: overload, specialization
   Perl6: overload, multi
   Haskell: instance, overload, pattern matching
-  Cottontail: another definition, attach-to, homonym
+  Cottontail: another definition, add-def, homonym
 
 - [Scheme, Perl6, C#]: ()
   Haskell: <nothing>
   Cottontail: do
+
+- Cottontail: synonym
+
+- C#: trim
+  Python: strip
+  Perl6: 
+  Cottontail: trim
+
+- Python: in
+  Haskell: elem
+  Cottontail: in
+
+- Haskell: </>
+  Python: path.sep
+  C#: Path.PathSeparator
+  Cottontail: path
 
 
