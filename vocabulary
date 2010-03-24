@@ -12,6 +12,11 @@
   Haskell: function
   Cottontail: function
 
+- Scheme: lambda
+  C#: anonymous delegate
+  Scala: anonymous function
+  Cottontail: anonymous function
+
 - C: switch/case/default
   Haskell: case of
   Perl6: given/when

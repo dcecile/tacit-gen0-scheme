@@ -23,3 +23,5 @@ Forth:
 - RPN: it doesn't need a clever compiler
 Eiffel:
 - design by contract: the only way to think about code
+C#:
+- managed interop: for COM, for VB

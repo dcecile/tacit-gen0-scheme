@@ -1,0 +1,66 @@
+- say hi
+- strings (encodings, catenating, parsing)
+- variables
+- interactive reloading
+- arithmetic
+- number precision
+- properties
+- extended values
+- file and console IO (including file paths)
+- define a function
+- add alternate definitions
+- comments (single and multiline)
+- docstrings
+- higher order functions
+- list creation
+- list manipulation
+- control flow (loops and conditions)
+- modules
+- FFI (procedural C and OOP C++)
+- custom conditional dispatch
+- compile-time reifications
+- shadow values
+- standard environments (maybe, expansion, choice, state)
+- purity and copied data
+- references
+- iterators
+- coroutines
+- continuations
+- exceptions
+- metaproperties (get, set, alias, custom)
+- wrappers, function macros
+- custom control flow
+- general macros
+- flow and block styles
+- merging definitions
+- replacing definitions
+- adlib
+- serialization
+- binary parsing/generating
+- blessing, cursing, ducking, proxying
+- property reflection (object/list/primitive)
+- generic lambdas
+- run-time dispatch
+- code analysis: dispatch time, computation time, purity
+- restricted code: purity, merging, exports
+- command-line arguments, environment variables, return value
+- concurrency
+- event-driven programming
+- reactive programming
+- custom map-filter-reduce fusion (lazy/efficient composition)
+- iterators
+- dicts, sets (ordered and hashed)
+- interned data
+- code points
+- XML, YAML, JSON
+- packaging and distribution
+- automated testing
+- short-circuit boolean operators
+- benchmarks, profiling, and optimization
+- graphs
+- relational data
+- valid symbols
+- looping stack modification
+- low-hanging fruit
+- point{less,free} coding
+- parsing, networking, and GUI libraries
