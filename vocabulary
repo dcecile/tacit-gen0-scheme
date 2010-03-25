@@ -1,3 +1,4 @@
+IO:
 - C: printf
   C++: cout
   Perl6: say
@@ -6,6 +7,20 @@
 - Python: log
   Cottontail: note
 
+- Haskell: show/read
+  Python: pickle/unpickle
+  Cottontail: freeze/unfreeze
+
+- Haskell: </>
+  Python: path.sep
+  C#: Path.PathSeparator
+  Cottontail: path
+
+- Haskell: put-str-ln ''
+  Scheme: newline
+  Cottontail: newline
+
+Functions:
 - C: function
   Java: method
   Scheme: procedure, lambda
@@ -17,6 +32,15 @@
   Scala: anonymous function
   Cottontail: anonymous function
 
+- Concat: quote
+  Cottontail: delay
+
+- [Scheme, Perl6, C#]: ()
+  Haskell: <nothing>
+  Powershell: &
+  Cottontail: do
+
+Conditions:
 - C: switch/case/default
   Haskell: case of
   Perl6: given/when
@@ -30,10 +54,12 @@
 - Scheme: cond/else
   Cottontail: when/else
   
+Exceptions:
 - Java: try/catch/finally
   Python: try/catch/ensure
   Cottontail: try/run/on-error/ensure (always?)
 
+Data structures:
 - Haskell: map
   Python: dict
   Cottontail: dict
@@ -44,16 +70,23 @@
 - Haskell: tuple
   Cottontail: list
 
-- Haskell: IORef
+References:
+- Haskell: ioref
   Cottontail: share/.ref
 
-- Haskell: mapM_
-  Cottontail: each
+- Haskell: read-io-ref
+  Clojure: deref/@
+  C: *
+  Cottontail: .ref/*
 
-- Haskell: show/read
-  Python: pickle/unpickle
-  Cottontail: freeze/unfreeze
+Looping:
+- Haskell: mapm_
+  Python: for in
+  C#: foreach
+  Java: for in
+  Cottontail: foreach
 
+Lists:
 - [Javascript, Python]: +
   Haskell: ++
   Perl6: ~
@@ -66,18 +99,66 @@
 - Python: join
   Cottontail: join-with
 
-- [C, Haskell]: &&
-  Python: and
-  Cottontail: and
+- Haksell: concat-map
+  Clojure: mapcat
+  Cottontail: mapcat
+
+- Python: len
+  Haskell: length
+  Perl6: scalar
+  Clojure: count
+  Cottontail: count
 
 - Haskell: foldl0
   Scheme: fold
   Cottontail: reduce
 
+- Haskell: foldl
+  Cottontail: fold
+
+- Haskell: foldr
+  Cottontail: foldr
+
+- Python: in
+  Haskell: elem
+  Cottontail: in
+
+Lazy lists:
+- Clojure: vec
+  C#: to-array
+  Cottontail: uniter
+
+- Cottontail: iter
+
+Logic:
+- [C, Haskell]: &&
+  Python: and
+  Cottontail: and
+
+- Haskell: and
+  Cottontail: all
+
+- Haskell: all
+  Clojure: every?
+  Cottontail: every/none
+
+- C: ==
+  Haskell: ==
+  Perl6: ==, eq
+  Scheme: =, eq?, eqv?, equal?
+  Cottontail: eq
+
+Strings:
 - [C#, Python]: format
   C: sprintf
   Cottontail: adlib
 
+- C#: trim
+  Python: strip
+  Perl6: 
+  Cottontail: trim
+
+Special values:
 - C: null
   Haskell: nothing
   Python: nil
@@ -89,24 +170,12 @@
   Python: pass
   Cottontail: pass, blank
 
+Modules:
 - [Java, Haskell, Python]: import
   C: include
   C#: using
   Perl6: use
   Cottontail: use
-
-- Perl6: temp
-  Cottontail: shadow
-
-- Java: instance variable
-  Perl6: property
-  Cottontail: property
-
-- C: ==
-  Haskell: ==
-  Perl6: ==, eq
-  Scheme: =, eq?, eqv?, equal?
-  Cottontail: eq
 
 - [C++, C#]: namespace, class
   C: header
@@ -133,26 +202,19 @@
 - C++: overload, specialization
   Perl6: overload, multi
   Haskell: instance, overload, pattern matching
-  Cottontail: another definition, add-def, homonym
-
-- [Scheme, Perl6, C#]: ()
-  Haskell: <nothing>
-  Cottontail: do
+  Cottontail: another definition, add-def, homonym, merge-defs
 
 - Cottontail: synonym
 
-- C#: trim
-  Python: strip
-  Perl6: 
-  Cottontail: trim
+- Cottontail: mock
 
-- Python: in
-  Haskell: elem
-  Cottontail: in
+Hidden state:
+- Perl6: temp
+  Cottontail: shadow
 
-- Haskell: </>
-  Python: path.sep
-  C#: Path.PathSeparator
-  Cottontail: path
+Data:
+- Java: instance variable
+  Perl6: property
+  Cottontail: property
 
-
+- Haskell: bless/curse/duck/proxy
