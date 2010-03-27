@@ -30,15 +30,18 @@ Functions:
 - Scheme: lambda
   C#: anonymous delegate
   Scala: anonymous function
-  Cottontail: anonymous function
+  Cottontail: deferred operation
 
 - Concat: quote
-  Cottontail: delay
+  Cottontail: defer
 
 - [Scheme, Perl6, C#]: ()
   Haskell: <nothing>
   Powershell: &
   Cottontail: do
+
+- Haskell: uncurry
+  Cottontail: undo, expand-into? uncurry
 
 Conditions:
 - C: switch/case/default
@@ -185,7 +188,7 @@ Modules:
 
 - [C, Java, Python, Haskell]: library
   Perl6: module
-  Cottontail: library
+  Cottontail: bundle
 
 - C#: partial
   Haskell: module module
