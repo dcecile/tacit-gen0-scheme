@@ -73,21 +73,37 @@ Data structures:
 - Haskell: tuple
   Cottontail: list
 
+- C: union
+  Haskell: type
+  Scala: case class
+  Cottontail: variant
+
+- C: enum
+  Cottontail: enum
+
+- Haskell: constructor
+  Cottontail: holder?
+
 References:
 - Haskell: ioref
   Cottontail: share/.ref
 
-- Haskell: read-io-ref
-  Clojure: deref/@
+- Haskell: read-ioref
+  Clojure: deref, @
   C: *
-  Cottontail: .ref/*
+  Cottontail: *, .ref
+
+- Haskell: write-ioref
+  C: *
+  Scheme: set!
+  Cottontail: $, set-ref
 
 Looping:
 - Haskell: mapm_
   Python: for in
   C#: foreach
   Java: for in
-  Cottontail: foreach
+  Cottontail: each
 
 Lists:
 - [Javascript, Python]: +
@@ -126,12 +142,25 @@ Lists:
   Haskell: elem
   Cottontail: in
 
+- Haskell: zipWith
+  Cottontail: zipmap
+
+- Haskell: singleton
+  Scheme: list
+  Cottontail: single
+
 Lazy lists:
 - Clojure: vec
   C#: to-array
   Cottontail: uniter
 
 - Cottontail: iter
+
+- Haskell: [1..10]
+  Cottontail: 1 11 range
+
+- Haskell: [1..]
+  Cottontail: 
 
 Logic:
 - [C, Haskell]: &&
@@ -141,9 +170,9 @@ Logic:
 - Haskell: and
   Cottontail: all
 
-- Haskell: all
+- Haskell: all/or/[not or]
   Clojure: every?
-  Cottontail: every/none
+  Cottontail: every/some/none
 
 - C: ==
   Haskell: ==
