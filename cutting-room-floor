@@ -1,0 +1,56 @@
+Syntax:
+- list comprehension
+- implicit references
+- native regular expressions
+- embedded C code
+- distinct REPL syntax and semantics
+- pattern matching
+- magic comments
+- implicit laziness
+- datagram processing
+- operators
+- preprocessor macros
+- docstrings as plain strings
+- special control flow constructs
+- exception dispatch syntax
+- mathematical symbol alternative syntax
+- implicit lambda arguments
+- generator syntax
+- variable expansion in strings
+- non-Unicode string literals
+- denoted types
+
+Functions:
+- objects, classes
+- type classes, existential types, type families, covariance
+
+Data structures:
+- scoped property names
+- monads
+- strings implicitly as lists of codepoints or graphemes
+- impure iterators
+- full continuations
+- distinct tuples and lists
+- bignums
+- SIMD
+- non-Unicode internal encodings
+
+Performance:
+- independent type checking and compilation for modules
+- mutexes/semaphores/monitors/cross-thread sharing
+- distributed computing
+- mutable variables
+
+Compiler extensions:
+- extensible compiler pipeline
+- mathematical Latex rendering
+
+Commandline help:
+- Unix tool integration
+
+GUI help:
+- reactive programming
+
+Webapp help:
+- database and webapp support
+- partial sandboxing
