@@ -4,3 +4,5 @@
 - lispy: no pitfalls, flexible langauge development
 - unnested bindings: I just want a new variable
 - purity: please no object webs
+- anti-identifier-styling: for sanity's sake, unify Javascript and Python identifier styles (scopable)
+- prototypes: because they work for modules and plain objects

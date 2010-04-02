@@ -15,6 +15,7 @@
 - list creation
 - list manipulation
 - control flow (loops and conditions)
+- interactive typechecker debugging
 - modules
 - FFI (procedural C and OOP C++)
 - custom conditional dispatch

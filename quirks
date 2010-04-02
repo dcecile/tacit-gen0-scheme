@@ -11,3 +11,4 @@
 - scoped global state: monads and DSLs for the rest of us
 - localized syntaxes: for the rest of the world
 - no assignment, just binding: safe implicit variable declarations
+- compiler assumptions: a type system that uses regular values and functions

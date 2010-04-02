@@ -190,6 +190,10 @@ Strings:
   Perl6: 
   Cottontail: trim
 
+- Lisp: pprint
+  Cottontail: stringify? console-display-string?
+  # Distinct from freeze, this is custom formatting
+
 Special values:
 - C: null
   Haskell: nothing

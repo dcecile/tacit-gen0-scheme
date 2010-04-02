@@ -9,7 +9,7 @@ get-cell grid x y def:
 near i def:
   i repeat  -1 1 range  [+]  zipmap
 
-neighbours grid x y def:
+neighbours-linear grid x y def:
   pairs = y near _ map: y' ->
     x near _ map: x' ->
       [y' x']
@@ -17,6 +17,21 @@ neighbours grid x y def:
     x' x neq  y' y neq  or
   pairs _ uncurry map: y' x' ->
     grid y' x' get-cell
+
+neighbours-monad x y def:
+  y near _ bind: y' ->
+    x near _ bind: x' ->
+      x' x neq  y' y neq  or  not guard
+      grid y' x' get-cell
+
+neighbours grid x y def:
+  y near _ catmap: y' ->
+    x near _ maybemap: x' ->
+      when:
+        x' x neq  y' y neq  or,
+          grid y' x' get-cell just
+        else,
+          nothing
 
 living-neighbours def:
   neighbours  [alive eq] filter  count
@@ -52,6 +67,13 @@ make-grid pattern width height def:
       width = width
       height = height
 
+show-cell-dict s def:
+  [
+    ['[X]' alive]
+    [' . ' dead]
+    ]
+    dict s >>
+
 show-cell def:
   match:
     alive, '[X]'
@@ -71,38 +93,38 @@ put-generations start n def:
     [put-grid newline] each
 
 blinker def: [
-    [5]
-    [5]
-    [1 3 1]
-    [5]
-    [5]
-    ] 5 5 make-grid
+  [5]
+  [5]
+  [1 3 1]
+  [5]
+  [5]
+  ] 5 5 make-grid
 
 figure-eight def: [
-    [10]
-    [10]
-    [2 3 5]
-    [2 3 5]
-    [2 3 5]
-    [5 3 2]
-    [5 3 2]
-    [5 3 2]
-    [10]
-    [10]
-    ] 10 10 make-grid
+  [10]
+  [10]
+  [2 3 5]
+  [2 3 5]
+  [2 3 5]
+  [5 3 2]
+  [5 3 2]
+  [5 3 2]
+  [10]
+  [10]
+  ] 10 10 make-grid
 
 glider def: [
-    [7]
-    [7]
-    [7]
-    [3 3 1]
-    [3 1 3]
-    [4 1 2]
-    [7]
-    ] 7 7 make-grid
+  [7]
+  [7]
+  [7]
+  [3 3 1]
+  [3 1 3]
+  [4 1 2]
+  [7]
+  ] 7 7 make-grid
 
 lineGun def: [
-    [40]
-    [1 5 1 6 6 3 3 5 1 8 1]
-    [40]
-    ] 40 2 make-grid
+  [40]
+  [1 5 1 6 6 3 3 5 1 8 1]
+  [40]
+  ] 40 2 make-grid

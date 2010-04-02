@@ -1,0 +1,25 @@
+- releasing
+- Unicode lexing
+  - and good enough host language
+- iter and zip
+- custom iters using yield
+- finite and infinite ranges
+- control-flow keywords and shadowing (eg. run, else...)
+- parsing error messages
+- C++ const-ref/ref and closures
+- bland syntax (try highlighting)
+- backwards lists (rev fn?)
+- custom control-flow syntax
+- monads
+- accurate translations (Japanese/French)
+  - function names
+  - keyboard/symbol mapping
+  - automatic transliteration
+- parentheses closing before colon
+- multisetref shortcut
+- constrained matrices
+- namings of map/filter/reduce variants (zip, maybe, cat, plus, and)
+- recursive types (x def: "hi" [x])
+- superb type inference
+- type ambiguity resolution helpers
+- malloc-level Cottontail for bootstrapping data-structures
