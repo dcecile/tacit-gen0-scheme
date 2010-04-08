@@ -53,7 +53,7 @@
 - dicts, sets (ordered and hashed)
 - interned data
 - code points
-- XML, YAML, JSON
+- XML, YAML, JSON (streaming too)
 - packaging and distribution
 - automated testing
 - short-circuit boolean operators
@@ -65,3 +65,5 @@
 - low-hanging fruit
 - point{less,free} coding
 - parsing, networking, and GUI libraries
+- config settings
+- environment settings (locales, encodings, error handling, line endings, file paths, standard IO streams)

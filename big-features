@@ -29,6 +29,9 @@ Data structures:
 - shadow values
 - iterators
 
+Text:
+- Unicode strings
+
 Purity:
 - immutable variables
 - functional data structures

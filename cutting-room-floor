@@ -18,6 +18,7 @@ Syntax:
 - generator syntax
 - variable expansion in strings
 - non-Unicode string literals
+- non-Unicode source files
 - denoted types
 
 Functions:
@@ -33,7 +34,10 @@ Data structures:
 - distinct tuples and lists
 - bignums
 - SIMD
+
+Text:
 - non-Unicode internal encodings
+- multiple simultaneous localizations
 
 Performance:
 - independent type checking and compilation for modules
@@ -53,4 +57,5 @@ GUI help:
 
 Webapp help:
 - database and webapp support
-- partial sandboxing
+- linked-in 3rd-party sandboxing
+- main application security sandboxing
