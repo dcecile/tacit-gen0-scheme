@@ -1,44 +1,20 @@
+Fundamental:
 - releasing
-- Unicode lexing
-  - and good enough host language
-- iter and zip
-- custom iters using yield (eg. pure coroutines over continuations)
-- coroutine basis
-- finite and infinite ranges
-- control-flow keywords and shadowing (eg. run, else...)
-- parsing error messages
-- C++ const-ref/ref and closures
-- bland syntax (try highlighting)
-- backwards lists (rev fn?)
-- custom control-flow syntax
-- monads
+
+Globalization:
 - accurate translations (Japanese/French)
   - function names
   - keyboard/symbol mapping
   - automatic transliteration
 - internationalized literal number parsing
 - identifier parsing affected by internationalized syntax
-- string localization syntax
-  - format strings that aren't really annoying for Japanese translators and are okay for quick hacks
-  - comments
-  - translation workflow (review, notes, updated source, ignored autoinclude)
-  - i18n string literal management: archived decisions on whether to translate strings or not
-- parentheses closing before colon
-- multisetref shortcut
-- constrained matrices
-- namings of map/filter/reduce variants (zip, maybe, cat, plus, and)
-  - eg. ^+ ([+] 0 reduce0), ^cat ([cat] empty reduce0), 
-- recursive types (x def: "hi" [x]) (denotationally impossible types)
-- superb type inference
-- type ambiguity resolution helpers
-- malloc-level Cottontail for bootstrapping data-structures
-- internal versus external reqs (+ resolving variants)
-  - try to restrict internal requirements to pure functions, no shadow-variable stuff (eg x &= req-nothing)
-- loops for imperative beginners/oldtimers
-- using = for impure reference updates doesn't rebind so maybe use a different symbol?
-  - eg. x.$y $= 3
-- name for "use but don't dump into my namespace"
-  - useful, or not? (ie. restricted @ns symbols)
+- good enough host language
+  - validation
+  - normalization
+  - properties
+  - TTY string width
+  - IO
+  - literals (maybe)
 - locale effects:
   - number formats
   - date formats
@@ -54,6 +30,38 @@
       - combining character order (hopefully normalization takes care of it) (non-interacting vs. interacting composing characters)
       - overlaid diacritics (likely imposible, or do "search without accents" like NFD)
   - don't break ligated glyphs like fi and SS
+
+Genericism:
+- iter and zip
+- recursive types (x def: "hi" [x]) (denotationally impossible types)
+- superb type inference
+- type ambiguity resolution helpers
+- internal versus external reqs (+ resolving variants)
+  - try to restrict internal requirements to pure functions, no shadow-variable stuff (eg x &= req-nothing)
+- generic inferred deserialization (with intentional or accidental ambiguity, and with dynamic typing)
+- typed fixup functions
+
+Coroutines:
+- custom iters using yield (eg. pure coroutines over continuations)
+- coroutine basis
+- finite and infinite ranges
+
+Syntax:
+- control-flow keywords and shadowing (eg. run, else...)
+- bland syntax (try highlighting)
+- backwards lists (rev fn?)
+- custom control-flow syntax
+- monads
+- string localization syntax
+  - format strings that aren't really annoying for Japanese translators and are okay for quick hacks
+  - comments
+  - translation workflow (review, notes, updated source, ignored autoinclude)
+  - i18n string literal management: archived decisions on whether to translate strings or not
+- parentheses closing before colon
+- multisetref shortcut
+- constrained matrices
+- using = for impure reference updates doesn't rebind so maybe use a different symbol?
+  - eg. x.$y $= 3
 - string literal escapes
   - Unicode specifically avoided escape sequences due to context dependencies
   - just use other delimiters
@@ -62,4 +70,25 @@
   - what about format strings?
   - yet still localizable (eg. localize an evaluation)
 - localizable expressions
+
+Feedback:
+- parsing error messages
+
+Performance:
+- C++ const-ref/ref and closures
+
+Names:
+- namings of map/filter/reduce variants (zip, maybe, cat, plus, and)
+  - eg. ^+ ([+] 0 reduce0), ^cat ([cat] empty reduce0), 
+- automated testing APIs
+
+Self-hosting:
+- malloc-level Cottontail for bootstrapping data-structures
+
+Teaching:
+- loops for imperative beginners/oldtimers
+- name for "use but don't dump into my namespace"
+  - useful, or not? (ie. restricted @ns symbols)
+
+Deployment:
 - installer support (see Bauerbill)
