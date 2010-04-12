@@ -12,7 +12,8 @@ Globalization:
   - validation
   - normalization
   - properties
-  - TTY string width
+  - TTY string width (alternate: TTY colour)
+  - character count
   - IO
   - literals (maybe)
 - locale effects:
@@ -25,11 +26,20 @@ Globalization:
   - string sorting, casing
   - keyboard hotkeys
   - linebreaking
+  - translation source
+- overriding the locale for custom behaviour (eg. better string collation for my locale)
+- custom locales (eg. Punjabi Canada)
 - Unicode lexing considerations:
   - identifier/security:
       - combining character order (hopefully normalization takes care of it) (non-interacting vs. interacting composing characters)
       - overlaid diacritics (likely imposible, or do "search without accents" like NFD)
   - don't break ligated glyphs like fi and SS
+  - BIDI expression error indicators (eg. TTY colour)
+  - combining characters on whitespace
+  - locale-specific number format
+    - without writing identifiers impossible to use in other locales
+- UI language and text rendering (Qt & GTK)
+
 
 Genericism:
 - iter and zip
@@ -40,16 +50,28 @@ Genericism:
   - try to restrict internal requirements to pure functions, no shadow-variable stuff (eg x &= req-nothing)
 - generic inferred deserialization (with intentional or accidental ambiguity, and with dynamic typing)
 - typed fixup functions
+- specializing code paths once a type is determined
+  - this is run-time compile dispatch
+  - eg. read a file but detect the text encoding, then specialize at runtime for UTF-{8,16{LE,BE},32{LE,BE}}
+- number ambiguity: integer, floating point, fixed point, user-defined
+  - all fixnums are user-defined
+  - lossless fraction is another good type
+- string, list, and lambda literal casting just like for numbers
+- coroutines
 
 Coroutines:
 - custom iters using yield (eg. pure coroutines over continuations)
 - coroutine basis
 - finite and infinite ranges
+- typing/channels
 
 Syntax:
 - control-flow keywords and shadowing (eg. run, else...)
 - bland syntax (try highlighting)
 - backwards lists (rev fn?)
+  - eg. reading order joining:
+    - ["Hello " "I am" " Dan"] `cat
+    - [[1 2 3] [4] [5 6]] `cat
 - custom control-flow syntax
 - monads
 - string localization syntax
@@ -57,6 +79,7 @@ Syntax:
   - comments
   - translation workflow (review, notes, updated source, ignored autoinclude)
   - i18n string literal management: archived decisions on whether to translate strings or not
+  - plurals
 - parentheses closing before colon
 - multisetref shortcut
 - constrained matrices
@@ -69,21 +92,37 @@ Syntax:
   - or write the codepoint number (U+0020 is a valid identifier, or it could be primitive)
   - what about format strings?
   - yet still localizable (eg. localize an evaluation)
+  - test:
+      simplistic: "Status: 302 Moved Temporarily\(newline)Location: {0}\(newline)" tr
+      legacy: "Status: 302 Moved Temporarily\nLocation: {0}\n" tr
+      expression: ["Status: 302 Moved Temporarily" newline "Location: {0}" newline] join tr
 - localizable expressions
+- lightweight self-describing assertions
+- hex literals
+- codepoint literals
+- abiguous list/lambda
+  - resolved by "list/seq/ls" function (with rseq and iseq variants?)
+  - or by more syntax
+- full expressions inside string escapes (or in string formats)
+  - to combat regex nastiness
 
 Feedback:
 - parsing error messages
+
+Text:
+- string equality checks and normalization
+- string collation and normalization
 
 Performance:
 - C++ const-ref/ref and closures
 
 Names:
-- namings of map/filter/reduce variants (zip, maybe, cat, plus, and)
+- namings of map/filter/reduce commbos (zip, maybe, cat)
+- namings of reduce variants (cat, plus, and)
   - eg. ^+ ([+] 0 reduce0), ^cat ([cat] empty reduce0), 
 - automated testing APIs
-
-Self-hosting:
-- malloc-level Cottontail for bootstrapping data-structures
+- file extensions
+- tool names
 
 Teaching:
 - loops for imperative beginners/oldtimers
@@ -91,4 +130,31 @@ Teaching:
   - useful, or not? (ie. restricted @ns symbols)
 
 Deployment:
-- installer support (see Bauerbill)
+- installer support
+- security/trust
+
+Best practices:
+- local variable names:
+  - single letters
+  - capitals and hyphens
+- mocking
+
+Serialization:
+- lambda exception; @ is not good enough by itself
+  - eg. "email@co" get-email@mail
+- localized serialized numbers (eg. 1.990,32)
+  - locale attribute on the file?
+  - use a metapair: """
+    ~~tag:
+      number-locale: de-DE
+      data:
+      - dlska
+      ...
+    """
+
+Theory:
+- link in syntax and semantics:
+  - list definition
+  - operation results capture
+  - operation delay
+  - coroutine

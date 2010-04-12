@@ -12,3 +12,4 @@
 - localized syntaxes: for the rest of the world
 - no assignment, just binding: safe implicit variable declarations
 - compiler assumptions: a type system that uses regular values and functions
+- micro-scalability: write just what you need to add new code

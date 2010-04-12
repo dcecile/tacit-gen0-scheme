@@ -68,3 +68,4 @@
 - config settings
 - environment settings (locales, encodings, error handling, line endings, file paths, standard IO streams)
 - serialization extensions (eg. custom dicts/lists)
+- globalization (full workflow)

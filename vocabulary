@@ -194,6 +194,12 @@ Strings:
   Cottontail: stringify? console-display-string?
   # Distinct from freeze, this is custom formatting
 
+- C#: resource.properties.*
+  Qt: tr/tr
+  KDE: i18n/i18nc/i18np/i18ncp
+  C: _/ /ngettext
+  Cottontail: tr/trc/trp/trcp
+
 Special values:
 - C: null
   Haskell: nothing

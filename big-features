@@ -47,6 +47,7 @@ Globalization:
 
 Interop:
 - FFI
+- C++ class extensions, templates
 - XML, YAML, JSON processing
 
 Serialization:
@@ -70,6 +71,7 @@ Performance:
 - compiler const-pointer required optimizations
 - compile-time dispatch
 - enforced independent threads
+- event-loop threading model
 
 Compiler extensions:
 - compiler introspection APIs

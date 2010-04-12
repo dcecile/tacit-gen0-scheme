@@ -20,6 +20,13 @@ Syntax:
 - non-Unicode string literals
 - non-Unicode source files
 - denoted types
+- literate dialect
+- support for lexically illegal identifiers
+- dictionary syntax
+- string variants (eg. verbatim, localizable, codepoint)
+- numeric variants (eg. floating, double, integer)
+- arbitrary numeric bases (eg. binary, base 7)
+- octal numbers
 
 Functions:
 - objects, classes
@@ -38,10 +45,16 @@ Data structures:
 Text:
 - non-Unicode internal encodings
 - multiple simultaneous localizations
+- native (non-FFI) regular expressions
+- change UI languages on-the-fly
+- extensions to the character property database for private use characters
 
 Performance:
 - independent type checking and compilation for modules
 - mutexes/semaphores/monitors/cross-thread sharing
+- plain old message passing
+- futures
+- STM
 - distributed computing
 - mutable variables
 
@@ -59,3 +72,8 @@ Webapp help:
 - database and webapp support
 - linked-in 3rd-party sandboxing
 - main application security sandboxing
+
+Interop help:
+- JVM integration
+- CLR integration
+- callback functions
