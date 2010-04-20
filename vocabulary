@@ -40,6 +40,13 @@ Functions:
   Powershell: &
   Cottontail: do
 
+- Scheme: lambda()
+  Erlang: fun()
+  Clojure: fn[]
+  Perl5: sub{}
+  Haskell: (\->)
+  Cottontail: [->]
+
 - Haskell: uncurry
   Cottontail: undo, expand-into? uncurry
 
@@ -82,7 +89,7 @@ Data structures:
   Cottontail: enum
 
 - Haskell: constructor
-  Cottontail: holder?
+  Cottontail: box
 
 References:
 - Haskell: ioref
@@ -199,6 +206,8 @@ Strings:
   KDE: i18n/i18nc/i18np/i18ncp
   C: _/ /ngettext
   Cottontail: tr/trc/trp/trcp
+  # trp0 might be good to for "no" and "none", French too "rien"
+    # or this should be default behaviour
 
 Special values:
 - C: null
@@ -244,7 +253,7 @@ Modules:
 - C++: overload, specialization
   Perl6: overload, multi
   Haskell: instance, overload, pattern matching
-  Cottontail: another definition, add-def, homonym, merge-defs
+  Cottontail: another definition, add-def, homonym, merge-defs, extend-def (vs. extend-enum)
 
 - Cottontail: synonym
 

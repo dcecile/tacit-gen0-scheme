@@ -38,8 +38,19 @@ Globalization:
   - combining characters on whitespace
   - locale-specific number format
     - without writing identifiers impossible to use in other locales
+  - format characters required for correct rendering of identifiers
+  - equality tests that eat and match trailing combining marks
+  - normalization (Unicode and linebreak) without breaking literal strings
 - UI language and text rendering (Qt & GTK)
-
+- browsing (or downloading) code with localized APIs and syntax
+  - requires all function names in a module to be of the same language (or annotated otherwise)
+  - variables won't be localized usually
+  - syntax needs tagging as well
+  - translated on an any-to-target basis
+  - and numbers
+- how to localize APIs (especially for finding translations)
+- syntax that doesn't interfere with CKJV IME
+- localized numbers in YAML
 
 Genericism:
 - iter and zip
@@ -80,7 +91,6 @@ Syntax:
   - translation workflow (review, notes, updated source, ignored autoinclude)
   - i18n string literal management: archived decisions on whether to translate strings or not
   - plurals
-- parentheses closing before colon
 - multisetref shortcut
 - constrained matrices
 - using = for impure reference updates doesn't rebind so maybe use a different symbol?
@@ -98,8 +108,6 @@ Syntax:
       expression: ["Status: 302 Moved Temporarily" newline "Location: {0}" newline] join tr
 - localizable expressions
 - lightweight self-describing assertions
-- hex literals
-- codepoint literals
 - abiguous list/lambda
   - resolved by "list/seq/ls" function (with rseq and iseq variants?)
   - or by more syntax
@@ -115,6 +123,7 @@ Text:
 
 Performance:
 - C++ const-ref/ref and closures
+- really good list fusion and array slices
 
 Names:
 - namings of map/filter/reduce commbos (zip, maybe, cat)
@@ -123,11 +132,12 @@ Names:
 - automated testing APIs
 - file extensions
 - tool names
+- names for syntax: colon, double colon, braces, semicolon, comma, period
+- name for "use but don't dump into my namespace"
+  - useful, or not? (ie. restricted @ns symbols)
 
 Teaching:
 - loops for imperative beginners/oldtimers
-- name for "use but don't dump into my namespace"
-  - useful, or not? (ie. restricted @ns symbols)
 
 Deployment:
 - installer support
@@ -138,6 +148,7 @@ Best practices:
   - single letters
   - capitals and hyphens
 - mocking
+- genericism and property names
 
 Serialization:
 - lambda exception; @ is not good enough by itself
@@ -158,3 +169,15 @@ Theory:
   - operation results capture
   - operation delay
   - coroutine
+
+Interactivity:
+- integrated REPL and edit-and-continue and live coding as good as:
+  - Squeak
+  - Gambit & iPhone
+  - Fluxus
+  - Erlang
+
+Meta-platform:
+- high performance timers
+- resource management
+- ^C interrupt, at least for infinite REPL loops

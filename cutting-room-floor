@@ -58,6 +58,9 @@ Performance:
 - distributed computing
 - mutable variables
 
+Interactivity:
+- REPL proxies (for devices or servers)
+
 Compiler extensions:
 - extensible compiler pipeline
 - mathematical Latex rendering

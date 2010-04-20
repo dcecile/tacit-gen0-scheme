@@ -1,0 +1,28 @@
+- any-addition:
+  1 + [3, 4] + "90" + true
+- unsafe equality by default:
+  "1" == 1.0
+- nested uncaptured "this":
+  {
+    data : "something",
+    go : function () {
+      $('myButton').onClick(function () {
+        $('label').text = this.data;
+      }
+    }
+  }
+- foreach that doesn't work for customized arrays
+- silent arithmatic errors:
+  1 * 'a' + 3 + 8 / 2
+- silent property errors:
+  this.neverExistingProperty + 'txt'
+- easily forgetable declaration syntax:
+  function fact(n, acc) {
+    now = n;
+    if (n == 0) { return 1; }
+    else { return fact(n - 1, acc * now); }
+  }
+- return keyword
+- Java syntax (looks like classic OOP)
+- no module system
+- internal XML
