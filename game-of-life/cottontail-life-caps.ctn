@@ -1,0 +1,130 @@
+alive enum
+dead enum
+
+get-cell grid X Y def:
+  X &= grid.width mod
+  Y &= grid.width mod
+  grid.cells Y >> X >>
+
+near I def:
+  I repeat  -1 1 range  [+]  zipmap
+
+neighbours-linear grid X Y def:
+  Pairs = Y near _ map: Y' ->
+    X near _ map: X' ->
+      [Y' X']
+  Pairs &= uncurry filter: Y' X' ->
+    X' X neq  Y' Y neq  or
+  Pairs _ uncurry map: Y' X' ->
+    grid Y' X' get-cell
+
+neighbours-monad X Y def:
+  Y near _ bind: Y' ->
+    X near _ bind: X' ->
+      X' X neq  Y' Y neq  or  not guard
+      grid Y' X' get-cell
+
+neighbours grid X Y def:
+  Y near _ catmap: Y' ->
+    X near _ maybemap: X' ->
+      when:
+        X' X neq  Y' Y neq  or,
+          grid Y' X' get-cell just
+        else,
+          nothing
+
+living-neighbours def:
+  neighbours  [alive eq] filter  count
+
+evolve-cell S N def:
+  S match:
+    dead, N match:
+      3, alive
+      else, dead
+    alive, when:
+      N 3 >, dead
+      N 2 <, dead
+      else, alive
+
+evolve-grid Grid def:
+  Grid.cells =
+    0 Grid.height range Grid.cells zipmap: R Y ->
+      0 Grid.width range R: X S ->
+        S Grid X Y living-neighbours evolve-cell
+  grid
+
+generations def: [evolve-grid] iterate
+
+make-grid Pattern Width Height def:
+    Cells = Pattern _ map: P ->
+      [alive dead] cycle P zip
+        [replicate] uncurry
+        mapcat
+    Cells count Height eq assert
+    Cells [count Width eq] every assert
+    mk:
+      cells = Cells
+      width = Width
+      height = Height
+
+show-cell-dict S def:
+  [
+    ['[X]' alive]
+    [' . ' dead]
+    ]
+    dict S >>
+
+show-cell def:
+  match:
+    alive, '[X]'
+    dead,  ' . '
+
+show-row def:
+  [show-cell] mapcat
+
+show-grid def:
+  .cells [show-row] map
+
+put-grid def:
+  show-grid [say] each
+
+put-generations Start N def:
+  Start generations N take
+    [put-grid newline] each
+
+blinker def: [
+  [5]
+  [5]
+  [1 3 1]
+  [5]
+  [5]
+  ] 5 5 make-grid
+
+figure-eight def: [
+  [10]
+  [10]
+  [2 3 5]
+  [2 3 5]
+  [2 3 5]
+  [5 3 2]
+  [5 3 2]
+  [5 3 2]
+  [10]
+  [10]
+  ] 10 10 make-grid
+
+glider def: [
+  [7]
+  [7]
+  [7]
+  [3 3 1]
+  [3 1 3]
+  [4 1 2]
+  [7]
+  ] 7 7 make-grid
+
+lineGun def: [
+  [40]
+  [1 5 1 6 6 3 3 5 1 8 1]
+  [40]
+  ] 40 2 make-grid

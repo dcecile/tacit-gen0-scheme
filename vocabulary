@@ -268,4 +268,9 @@ Data:
   Perl6: property
   Cottontail: property
 
-- Haskell: bless/curse/duck/proxy
+- Cottontail: bless/curse/duck/proxy
+
+- C: struct
+  Java: class
+  Javascript: object
+  Cottontail: struct

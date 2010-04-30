@@ -12,3 +12,9 @@
 - return keyword
 - print keyword
 - unhackable (Designed) base types
+- impure generators:
+  from itertools import repeat
+  x = repeat('a', 4)
+  y = list(x)
+  z = list(x)
+  assert(y == z)

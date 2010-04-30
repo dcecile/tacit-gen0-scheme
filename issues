@@ -113,6 +113,10 @@ Syntax:
   - or by more syntax
 - full expressions inside string escapes (or in string formats)
   - to combat regex nastiness
+- less authority: allow recursive assignment
+  - mutual recursion through a temporary struct
+  - possible with value types? no
+- effective colons and brackets in flow style
 
 Feedback:
 - parsing error messages
@@ -130,11 +134,11 @@ Names:
 - namings of reduce variants (cat, plus, and)
   - eg. ^+ ([+] 0 reduce0), ^cat ([cat] empty reduce0), 
 - automated testing APIs
-- file extensions
-- tool names
+- tool names: profiler, LHF, coverage, tester, package manager
 - names for syntax: colon, double colon, braces, semicolon, comma, period
 - name for "use but don't dump into my namespace"
   - useful, or not? (ie. restricted @ns symbols)
+- purity enforcement context
 
 Teaching:
 - loops for imperative beginners/oldtimers
@@ -147,6 +151,7 @@ Best practices:
 - local variable names:
   - single letters
   - capitals and hyphens
+- title-cased anything with zero-arity, including enums
 - mocking
 - genericism and property names
 
@@ -162,6 +167,7 @@ Serialization:
       - dlska
       ...
     """
+  - viability of crazy commas and quote marks and spaces in YAML
 
 Theory:
 - link in syntax and semantics:

@@ -39,3 +39,9 @@ Project-file solution:
   - it's easy to find the way down the tree to the project root
 - drawback: you can't put multiple projects in the same directory
   - the project file and the project link files have well-known, fixed names
+
+Serialization:
+- use schemas when performance is desired over flexibility
+- recompile code after serialized data structures are deserialized
+  - specialize for run-time data
+- metadata last resort: magic comments
