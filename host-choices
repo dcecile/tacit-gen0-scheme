@@ -1,0 +1,53 @@
+Top choices:
+- Mosh
+- PLT
+- Perl
+- Pure
+- Ruby
+- Ypsilon
+
+Passing:
+- Cross-platform: Linux, Windows
+- Purity: lambdas are okay
+- Responsive: startup time
+- Unicode: UTF8 I/O, and full codepoint general category
+
+Requirements:
+- Cross-platform: Linux, Windows
+- Fail-fast: no laziness or null pointers
+- FFI: simple custom bindings
+- Interactivity: full-featured REPL
+- Generics: 100/1 not 10/10
+- Namespaces: simple, and conflict resolution
+- Profiling: hotspots
+- Purity: lambdas are okay
+- Responsive: startup time and quick IO
+- Unicode: UTF8 I/O, and full codepoint general category
+- Unit testing: assertions and reports
+
+Rejected:
+- ABCL: Responsive (startup over 200ms)
+- Bigloo: Unicode (not at REPL)
+- Chicken: Unicode (not at REPL)
+- CLisp: Cross-platform (Cygwin only)
+- Clojure: Responsive (startup over 1s)
+- ECL: Unicode (unknown, not easy support)
+- Erlang: Responsive (startup over 200ms)
+- Factor: Cross-platform (too tough to build on Linux)
+- Falcon: Interactivity (alpha REPL)
+- Gambit: Unicode (not at REPL)
+- Guile: Unicode (not at REPL)
+- Haskell: Fail fast (lazy)
+- Ikarus: Cross-platform (only Cygwin Windows)
+- Io: Cross-platform (tough to run even on Linux)
+- Kawa: Responsive (startup over 200ms)
+- Larceny: Responsive (startup over 1s with required SLIB)
+- Lua: Unicode (just ASCII)
+- Ocaml: Unicode (not at REPL)
+- Python: Purity (unweildy lambdas)
+- Rakudo: Unicode (not at REPL)
+- Rhino: Responsive (startup over 200ms)
+- SBCL: Cross-platform (tough Windows setup including ASDF)
+- Scala: Responsive (startup over 200ms)
+- Tracemonkey: Unicode (no general category)
+- V8: Unicode (no general category)
