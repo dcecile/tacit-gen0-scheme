@@ -234,6 +234,11 @@ Modules:
   Perl6: package, namespace, class
   Cottontail: module
 
+- Haskell: prelude
+  C#: system
+  C++: std
+  Cottontail: core
+
 - [C, Java, Python, Haskell]: library
   Perl6: module
   Cottontail: bundle
@@ -274,3 +279,5 @@ Data:
   Java: class
   Javascript: object
   Cottontail: struct
+
+- Cottontail: coerce

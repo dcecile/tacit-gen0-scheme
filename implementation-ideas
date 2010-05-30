@@ -45,3 +45,7 @@ Serialization:
 - recompile code after serialized data structures are deserialized
   - specialize for run-time data
 - metadata last resort: magic comments
+
+Coverage:
+- fills in words at a time with green background
+- strike-through non-executed (or something good enough for colour blindness/blindness)

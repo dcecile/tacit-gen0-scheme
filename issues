@@ -128,6 +128,7 @@ Text:
 Performance:
 - C++ const-ref/ref and closures
 - really good list fusion and array slices
+- debugging including TCO (note Pure's sacrifices)
 
 Names:
 - namings of map/filter/reduce commbos (zip, maybe, cat)
@@ -156,8 +157,6 @@ Best practices:
 - genericism and property names
 
 Serialization:
-- lambda exception; @ is not good enough by itself
-  - eg. "email@co" get-email@mail
 - localized serialized numbers (eg. 1.990,32)
   - locale attribute on the file?
   - use a metapair: """
@@ -168,6 +167,7 @@ Serialization:
       ...
     """
   - viability of crazy commas and quote marks and spaces in YAML
+- property name ambiguity
 
 Theory:
 - link in syntax and semantics:
@@ -182,8 +182,16 @@ Interactivity:
   - Gambit & iPhone
   - Fluxus
   - Erlang
+- REPL commands as good as:
+  - irb
+- record events to aid debugging
+- logging complex values creates new variables that can be examined at will
+  - eg. [1, 2, 3, ...] # see i832
 
 Meta-platform:
 - high performance timers
 - resource management
 - ^C interrupt, at least for infinite REPL loops
+- generate ELF symbols for using oprofile (see CCL)
+- functions for pointfree postfix, to work around the lack of
+  mutable caller stack (eg. when-dup)
