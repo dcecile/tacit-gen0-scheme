@@ -187,6 +187,7 @@ Interactivity:
 - record events to aid debugging
 - logging complex values creates new variables that can be examined at will
   - eg. [1, 2, 3, ...] # see i832
+- stepping scope (ie. don't step into simple list HOFs, even if they're not built in)
 
 Meta-platform:
 - high performance timers

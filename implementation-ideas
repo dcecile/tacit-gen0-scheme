@@ -49,3 +49,6 @@ Serialization:
 Coverage:
 - fills in words at a time with green background
 - strike-through non-executed (or something good enough for colour blindness/blindness)
+
+Garbage collection:
+- http://www.newlisp.org/MemoryManagement.html
