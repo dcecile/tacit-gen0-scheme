@@ -1,55 +1,40 @@
-{-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE ExistentialQuantification, Rank2Types #-}
 
-module Synops where
+module SynopsCps where
 
 import Control.Applicative
-import System.Vacuum.Cairo
 
-data Path c x =
-  End x
-  | forall y. Continue (c -> Bool) (c -> y) (Parser c (y -> x))
-data Parser c x = Parser [Path c x]
+data MaybeS x =
+  NothingS
+  | JustS !x
 
-instance Functor (Path c) where
-  fmap f (End x) = End $ f x
-  fmap f (Continue t f' n) = Continue t f' $ fmap (f .) n
+maybeS d _ (NothingS) = d
+maybeS _ f (JustS x) = f x
+
+data Parser c x = Parser (forall y. ([c] -> x -> MaybeS y) -> [c] -> MaybeS y)
 
 instance Functor (Parser c) where
-  fmap f (Parser p) = Parser (map (fmap f) p)
+  f `fmap` Parser p = Parser $ \s i ->
+    p (\i' -> s i' . f) i
 
 instance Applicative (Parser c) where
-  pure c = Parser [End c]
-  Parser f <*> x = foldr (<|>) empty $ map follow f
-    where
-    follow (End f') = fmap f' x
-    follow (Continue t f' n) = Parser . (: []) . Continue t f' $
-      flip <$> n <*> x
+  pure x = Parser $ \s i -> s i x
+  Parser f <*> ~(Parser x) = Parser $ \s i ->
+    f (\i' f' -> x (\i'' x' -> s i'' $! f' x') i') i
 
 instance Alternative (Parser c) where
-  empty = Parser []
-  Parser p <|> Parser p' = Parser (p ++ p')
-
-parseOne :: Parser c x -> c -> Parser c x
-parseOne (Parser p) c = 
-  Parser $ concat [(\(Parser n') -> n') (($ f c) <$> n) | Continue t f n <- p, t c]
-
-parseEnd (Parser p) =
-  finish [x | End x <- p]
-  where
-  finish [x] = Just x
-  finish _ = Nothing
+  empty = Parser $ \_ _ -> NothingS
+  Parser a <|> Parser b = Parser $ \s i ->
+    maybeS (b s i) JustS (a s i)
 
 parseList :: Parser c x -> [c] -> Maybe x
-parseList p [] = parseEnd p
-parseList p (c:cs) = parseList (parseOne p c) cs  
+parseList (Parser p) c = maybeS Nothing Just $ p f c
+  where
+  f [] x = JustS x
+  f _ _ = NothingS
 
 examples = mapM_ putStrLn
-  [ f ( Parser
-      [ End (1 :: Integer)
-      , Continue (== 'a') (const 4) (Parser [End (* 2)])
-      ]
-    , "a")
-  , f ( pure 'b' <|> token 'a'
+  [ f ( pure 'b' <|> token 'a'
     , "")
   , f ( pure 'b' <|> token 'a'
     , "a")
@@ -61,12 +46,30 @@ examples = mapM_ putStrLn
     , "")
   , f ( many (token 'a')
     , "aaaaaaa")
+  , f ( (token 'a' *> token 'a' *> token 'a' *> pure 3) <|>
+          (token 'a' *> token 'a' *> pure 2)
+    , "aaa")
+  , f ( (token 'a' *> token 'a' *> token 'a' *> pure 3) <|>
+          (token 'a' *> token 'a' *> pure 2)
+    , "aa")
+  , f ( liftA2 (,) (pure 'a' <|> token 'b') (token 'c')
+    , "bc")
+  , f ( liftA2 (,) (pure 'a' <|> token 'b') (token 'c')
+    , "c")
+  , f ( liftA2 (,) (many $ token 'b') (token 'c')
+    , "c")
+  , f ( liftA2 (,) (many $ token 'b') (token 'c')
+    , "bbbbc")
   ]
   where
   f (p, d) = show $ parseList p d
 
-match f = Parser [Continue f id (pure id)]
-token c = match (== c) 
+match t = Parser $ \s i -> case i of
+  (x:xs) | t x -> s xs x
+  _ -> NothingS
+token t = match ({-# SCC "testing" #-} (== t))
 
-
+exclude t x = Parser $ \s i -> case i of
+  (x:xs) | t x -> s xs x
+  _ -> NothingS
 

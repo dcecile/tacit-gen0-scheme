@@ -7,9 +7,7 @@ import qualified Synops as P
 import Data.Char
 import qualified Data.Foldable as F
 import System.Environment
---import Data.Array.Vector
-import System.Vacuum.Cairo
---import System.Vacuum.OpenGL.Client
+--import System.Vacuum.Cairo
 
 token = P.token
 notToken = P.match . (/=)
@@ -30,11 +28,11 @@ x `sepBy` y = liftA2 (:) x (many (y *> x)) <|> pure []
 
 
 data Value =
-    VObject ![(String, Value)]
-    | VArray ![Value]
-    | VString !String
-    | VNumber !String
-    | VBool !Bool
+    VObject [(String, Value)]
+    | VArray [Value]
+    | VString String
+    | VNumber String
+    | VBool Bool
     | VNull
     deriving (Show)
 
@@ -170,6 +168,7 @@ main =
     getArgs
     >>= parseFromFile doc . head
     >>= putStrLn . results . dispatch zeroStats . noProblem
+
 
 
 
