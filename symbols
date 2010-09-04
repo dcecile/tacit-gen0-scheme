@@ -1,0 +1,51 @@
+essential syntax:
+% comment
+%[% %]% block comment
+[ ] delay
+= declaration, modificaiton
+&= modification
+" " string
+""" """ literal string
+[[ ]] interpolation
+@ module
+. module path
+: whitespace delay
+_ insertion marker
+, clauses
+-> lambda
+
+essential alternatives:
+%
+[ ( {
+=
+" ' 「
+@
+:
+_ ……
+,
+-> --
+
+optional syntax:
+. member
+; statement
+* dereference
+
+simple naming:
+` higher order
++ plus
+- minus
+* times
+** exponent
+/ divide
+>> get
+<< set
+
+unused:
+^
+$
+\
+|
+?
+!
+<
+#

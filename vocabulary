@@ -1,6 +1,8 @@
 IO:
 - C: printf
   C++: cout
+  C#: system out writeline
+  Erlang: io format
   Perl6: say
   Cottontail: say
 
@@ -63,6 +65,12 @@ Conditions:
 
 - Scheme: cond/else
   Cottontail: when/else
+
+- Coffeescript: yes/on/true
+  Cottontail: yes/on/true
+
+- Coffeescript: no/off/false
+  Cottontail: no/off/false
   
 Exceptions:
 - Java: try/catch/finally
@@ -163,7 +171,8 @@ Lazy lists:
 
 - Cottontail: iter
 
-- Haskell: [1..10]
+- Haskell: [1..10], enumFromTo 1 10
+  Erlang: seq(1, 10) 
   Cottontail: 1 11 range
 
 - Haskell: [1..]
@@ -198,8 +207,11 @@ Strings:
   Cottontail: trim
 
 - Lisp: pprint
-  Cottontail: stringify? console-display-string?
+  Java: to string
+  Python: str
+  Cottontail: think
   # Distinct from freeze, this is custom formatting
+  # Think before you speak
 
 - C#: resource.properties.*
   Qt: tr/tr
@@ -220,6 +232,11 @@ Special values:
   Haskell: unit
   Python: pass
   Cottontail: pass, blank
+
+- Perl: yada yada
+  Haskell: undefined
+  C#: not yet implemented
+  Cottontail: yada yada
 
 Modules:
 - [Java, Haskell, Python]: import

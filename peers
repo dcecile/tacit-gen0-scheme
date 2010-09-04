@@ -1,0 +1,15 @@
+performance/genericism:
+  Clay: http://tachyon.in/clay/
+  Rust
+  BitC
+  Ooc: http://ooc-lang.org/
+  Orc: http://code.entropywave.com/projects/orc/
+
+interactive:
+  Factor
+  Circa
+
+properties:
+
+featherweight syntax/microscalability:
+  Io

@@ -38,8 +38,7 @@ Globalization:
   - combining characters on whitespace
   - locale-specific number format
     - without writing identifiers impossible to use in other locales
-  - format characters required for correct rendering of identifiers
-  - equality tests that eat and match trailing combining marks
+  - format characters required for correct rendering of identifiers - equality tests that eat and match trailing combining marks
   - normalization (Unicode and linebreak) without breaking literal strings
 - UI language and text rendering (Qt & GTK)
 - browsing (or downloading) code with localized APIs and syntax
@@ -67,6 +66,7 @@ Genericism:
 - number ambiguity: integer, floating point, fixed point, user-defined
   - all fixnums are user-defined
   - lossless fraction is another good type
+  - see "numeric-prelude" on Hackage for an extensible numeric tower
 - string, list, and lambda literal casting just like for numbers
 - coroutines
 
@@ -75,6 +75,11 @@ Coroutines:
 - coroutine basis
 - finite and infinite ranges
 - typing/channels
+
+Concurrency/parallelism:
+- consolidating eventing, coroutines, threads, actors, channels, CSP, and cooperative multithreading
+- utility of user threads
+- shaped parallel arrays: http://hackage.haskell.org/package/repa
 
 Syntax:
 - control-flow keywords and shadowing (eg. run, else...)

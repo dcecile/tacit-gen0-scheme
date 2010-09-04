@@ -1,6 +1,6 @@
 {-# LANGUAGE ExistentialQuantification, Rank2Types #-}
 
-module SynopsCps where
+module Synops where
 
 import Control.Applicative
 

@@ -1,0 +1,155 @@
+common:
+  -,.%()
+
+ja kana ime:
+- no < > # : ; = - & @ characters
+- ゛ぬふあうえおやゆよわほほ
+  たていすかんなにらせ゜むろ
+  ちとしはきくまのりれゃ
+  つさそひこみもねるめ
+- をぬ゛ぁぅぇへぉヶゅょろれ
+  たてぃすヵんなにらせ「」ー
+  ちとしゎきくまのりけふ
+  っさそゐこみも、。・
+
+zh bopomofo ime:
+- no ; - / symbols
+- ｀ㄅㄉˇˋㄓˊ˙ㄚㄞㄢㄦ＝
+  ㄆㄊㄍㄐㄔㄗㄧㄛㄟㄣ［］、
+  ㄇㄋㄎㄑㄕㄘㄨㄜㄠㄤ‘
+  ㄈㄌㄏㄒㄖㄙㄩㄝㄡㄥ
+- ～！＠＃＄％……＆＊（）＿＋
+  QWERTYUIOP｛｝｜
+  ASDFGHJKL：“
+  ZXCVBNM＜＞？
+
+ru:
+- no < > # $ / & @ symbols
+- ё1234567890-=
+  йцукенгшщзхъ\
+  фывапролджэ
+  ячсмитьбю.
+- Ё!"№;%:?*()_+
+  ФЫВАПРОЛДЖЭ
+  ЯЧСМИТЬБЮ,
+
+hi:
+- no < > ; : @ signs
+- ॊ१२३४५६७८९०-
+  बहगदजडॉ
+  परकतचचट
+  मनवलस,.य
+- ऒऍ#$%^&*()ऋ
+  औऐआईऊभङघधझढञऑ
+  ओएअइउफऱखथछठ
+  ऎणऩऴळशष।य़
+
+fr:
+- no < > # $ @ signs
+- ²&é"'(-è_çà)=
+  azertyuiop*
+  qsdfghjklmù
+  wxcvbn,;:!
+- ~234567890°+
+  AZERTYUIOPµ
+  QSDFGHJKLM%
+  WXCVBN?./§
+- ¬¹~#{[|`\^@]}
+  æ«€¶ŧ←↓→øþ¨¤`
+  @ßðđŋħjĸłµ^
+  ł»¢“”n´·
+
+zh pinyin ime: # similary to canjie and jyutping
+- no < > _ symbols (alts set)
+- ｀1234567890－＝
+  qwertyuiop［］、
+  asdfghjkl；‘
+  zxcvbnm，。／
+- ～！＠＃￥％……＆＊（）——＋
+  QWERTYUIOP｛｝｜
+  ASDFGHJKL：“
+  ZXCVBNM《》？
+
+de:
+- no < > # @ signs
+- 1234567890ß
+  qwertzuiopü+#
+  asdfghjklöäyxcvbnm,.-
+- °!"§$%&/()=?
+  QWERTZUIOPÜ*'
+  YXCVBNM;:_
+
+es:
+- no < > # @ signs (alts set)
+- º1234567890'¡
+  qwertyuiopç
+  asdfghjklñ
+  zxcvbnm,.-
+- ª!"·$%&/()=?¿
+  ASDFGHJKLÑ
+  ZXCVBNM;:_
+
+dk:
+- no < > @ signs
+- ½1234567890+
+  asdfghjklæø
+  zxcvbnm,.-
+- §!"#¤%&/()=?
+  ASDFGHJKLÆØ
+  ZXCVBNM;:_
+
+fr-CA multi:
+- no < > signs (alts set)
+- /1234567890-=
+  qwertyuiopçà
+  asdfghjkl;è
+  zxcvbnm,.é
+- \!@#$%?&*()_+
+  QWERTYUIOPÇÀ
+  ASDFGHJKL:È
+  ZXCVBNM'"É
+
+ja ime:　# imeable 『【「{[〔［〈《＜<≪《〈≦ / ÷
+- totally fine, annoying spaces
+- `1234567890ー=
+  qwertyuiop『』\
+　asdfghjkl;'
+　zxcvbnm、。・
+- 〜!@＃$%^&*()_+
+　QWERTYUIOP{}|
+　ASDFGHJKL:“
+　ZXCVBNM<>?
+
+
+ar:
+- totally fine
+- ذ1234567890-=
+  ضصثقفغعهخحجد\
+  شسيبلاتنمكط
+  ئءؤرﻻىةوزظ
+-  ّ!@#$%^&*)(_+
+  ﻹإ`÷×؛<>|
+  ][ﻷأـ،/:"
+  ~}{ﻵآ',.؟
+
+he:
+- totally fine
+- ;1234567890-=
+  /'קראטוןםפ][\
+  שדגכעיחלךף,
+  זסבהנמצתץ.
+- ~!@#$%^&*)(_+
+  QWERTYUIOP}{|
+  ASDFGHJKL:"
+  ZXCVBNM><?
+
+ko hangul ime:
+- totally fine
+- `1234567890-=
+  ㅂㅈㄷㄱㅅㅛㅑㅐㅔ[]\
+  ㅁㄴㅇㄹㅎㅗㅓㅏㅣ;'
+  ㅋㅌㅊㅍㅠㅜㅡ,./
+- ~!@#$%^&*()_+
+  ㅃㅉㄸㄲㅆYUIㅒㅖ{}|
+  ASDFGㅙㅝㅘㅚ:"
+  ZXCVㅟㅞㅢ<>?

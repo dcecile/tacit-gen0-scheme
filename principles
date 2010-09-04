@@ -7,3 +7,5 @@
 - FFI
 - global use
 - namespaces
+- conservation of old code???
+- testable (anti-legacy)

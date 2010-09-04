@@ -13,6 +13,9 @@ SCM integration:
   Standalone Bazaar:
   Standalone Git:
   Standalone Hg:
+  Standalone Fossil:
+    bug tracker
+    wiki
 
 Issue trackers:
   Launchpad:

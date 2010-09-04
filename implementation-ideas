@@ -50,5 +50,9 @@ Coverage:
 - fills in words at a time with green background
 - strike-through non-executed (or something good enough for colour blindness/blindness)
 
-Garbage collection:
-- http://www.newlisp.org/MemoryManagement.html
+Recoverable compile errors:
+- if possible, start with files that have been changed most recently
+- use "parser recovery" (try putting something in, see if it works, give it as a suggestion)
+
+Concurrency:
+- promise events (E), queueing discipline (Teatime): http://lambda-the-ultimate.org/node/4053

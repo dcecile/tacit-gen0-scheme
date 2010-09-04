@@ -3,33 +3,33 @@ dead enum
 
 get-cell grid x y def:
   x &= grid.width mod
-  y &= grid.width mod
+  y &= grid.height mod
   grid.cells y >> x >>
 
 near i def:
   i repeat  -1 1 range  [+]  zipmap
 
 neighbours-linear grid x y def:
-  pairs = y near _ map: y' ->
-    x near _ map: x' ->
-      [y' x']
-  pairs &= uncurry filter: y' x' ->
-    x' x neq  y' y neq  or
-  pairs _ uncurry map: y' x' ->
-    grid y' x' get-cell
+  pairs = y near _ map: y2 ->
+    x near _ map: x2 ->
+      [y2 x2]
+  pairs &= uncurry filter: y2 x2 ->
+    x2 x neq  y2 y neq  or
+  pairs _ uncurry map: y2 x2 ->
+    grid y2 x2 get-cell
 
 neighbours-monad x y def:
-  y near _ bind: y' ->
-    x near _ bind: x' ->
-      x' x neq  y' y neq  or  not guard
-      grid y' x' get-cell
+  y near _ bind: y2 ->
+    x near _ bind: x2 ->
+      x2 x neq  y2 y neq  or  not guard
+      grid x2 y2 get-cell
 
 neighbours grid x y def:
-  y near _ catmap: y' ->
-    x near _ maybemap: x' ->
+  y near _ catmap: y2 ->
+    x near _ maybemap: x2 ->
       when:
-        x' x neq  y' y neq  or,
-          grid y' x' get-cell just
+        x2 x neq  y2 y neq  or,
+          grid y2 x2 get-cell just
         else,
           nothing
 
@@ -42,14 +42,14 @@ evolve-cell s n def:
       3, alive
       else, dead
     alive, when:
-      n 3 >, dead
-      n 2 <, dead
+      n 3 gt, dead
+      n 2 lt, dead
       else, alive
 
 evolve-grid grid def:
   grid.cells =
     0 grid.height range grid.cells zipmap: r y ->
-      0 grid.width range r: x s ->
+      0 grid.width range r zipmap: x s ->
         s grid x y living-neighbours evolve-cell
   grid
 
@@ -123,7 +123,7 @@ glider def: [
   [7]
   ] 7 7 make-grid
 
-lineGun def: [
+line-gun def: [
   [40]
   [1 5 1 6 6 3 3 5 1 8 1]
   [40]
