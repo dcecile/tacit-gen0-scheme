@@ -1,0 +1,14 @@
+(at least for bootstrapping)
+
+JIT: llvm, DynASM
+Serialization: upc, libyaml
+Compression: zlib, bsdtar, snappy
+FFI: libffi
+I/O: 0mq, libev, PhysicsFS
+Unicode: ICU
+Numbers: GMP, MPFR
+GC: gc
+Concurrency: qthreads, libtask, hwloc
+Tracing: google-perftools, oprofile, dtrace
+Audio: PortAudio, libao
+Memory allocation: jemalloc

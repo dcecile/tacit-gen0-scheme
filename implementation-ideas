@@ -54,5 +54,13 @@ Recoverable compile errors:
 - if possible, start with files that have been changed most recently
 - use "parser recovery" (try putting something in, see if it works, give it as a suggestion)
 
+Error display:
+- for plain exceptions, and for parser errors
+- highlight bad text in interactive log (OCaml)
+- split text onto to lines, at the point of error (TeX)
+
 Concurrency:
 - promise events (E), queueing discipline (Teatime): http://lambda-the-ultimate.org/node/4053
+
+Package resolution:
+- see problem with Scala (unintended shadowing only with Java not .NET): http://www.artima.com/scalazine/articles/chained_package_clauses_in_scala.html

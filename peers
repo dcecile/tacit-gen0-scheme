@@ -13,3 +13,7 @@ properties:
 
 featherweight syntax/microscalability:
   Io
+
+concurrency:
+  Retlang: http://code.google.com/p/retlang/
+  Protothreads: http://www.sics.se/~adam/pt/

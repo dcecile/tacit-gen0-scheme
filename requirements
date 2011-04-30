@@ -49,6 +49,5 @@ Solved problems (giant's shoulders):
 - international (Unicode)
 - C/C++ support (libffi)
 - expressive (Haskell, Python, Scheme, Forth)
-- serialization (YAML, JSON)
+- serialization (YAML, JSON, Protocol Buffers)
 - concurrency (Erlang, OpenMP)
-

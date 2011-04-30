@@ -130,7 +130,8 @@ Lists:
   Python: chain
   Cottontail: join
 
-- Python: join
+- Haksell: intercalate
+  Python: join
   Cottontail: join-with
 
 - Haksell: concat-map
@@ -153,6 +154,10 @@ Lists:
 - Haskell: foldr
   Cottontail: foldr
 
+- Haskell: scanl
+  Python: accumulate
+  Cottontail: accumulate
+
 - Python: in
   Haskell: elem
   Cottontail: in
@@ -164,6 +169,11 @@ Lists:
   Scheme: list
   Cottontail: single
 
+- Lisp: car/cdr
+  Haskell: head/rest
+  Ocaml: hd/tl
+  Cottontail: hd/tl
+
 Lazy lists:
 - Clojure: vec
   C#: to-array
@@ -173,7 +183,7 @@ Lazy lists:
 
 - Haskell: [1..10], enumFromTo 1 10
   Erlang: seq(1, 10) 
-  Cottontail: 1 11 range
+  Cottontail: 1 11 range, 1 11 span
 
 - Haskell: [1..]
   Cottontail: 
@@ -213,6 +223,9 @@ Strings:
   # Distinct from freeze, this is custom formatting
   # Think before you speak
 
+- Perl: here-doc
+  Cottontail: here-doc
+
 - C#: resource.properties.*
   Qt: tr/tr
   KDE: i18n/i18nc/i18np/i18ncp
@@ -223,10 +236,15 @@ Strings:
 
 Special values:
 - C: null
-  Haskell: nothing
-  Python: nil
+  Haskell: nothing/just
+  Python: None
   Perl6: undef
-  Cottontail: nothing
+  Common Lisp: nil
+  Cottontail: nothing/just
+  Snowshoe: nil
+
+- Haskell: left/right
+  Cottontail: ying/yang
 
 - C: void
   Haskell: unit
@@ -237,6 +255,10 @@ Special values:
   Haskell: undefined
   C#: not yet implemented
   Cottontail: yada yada
+
+- C#: this
+  Python: self
+  Snowshoe: self, part, topic, tpc, it, wat, rig, jig, sth
 
 Modules:
 - [Java, Haskell, Python]: import

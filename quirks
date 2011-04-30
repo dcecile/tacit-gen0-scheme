@@ -1,3 +1,4 @@
+- simplicity and consistency: no arcane initiation rites (especially not in syntax)
 - duck typing: extensible like C++
 - connoted types: no restrictions on genericity
 - focus on properties: there's behaviour, and there's data

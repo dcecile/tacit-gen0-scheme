@@ -1,0 +1,53 @@
+\documentclass[draft]{memoir}
+
+\include{preamble}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\title{Cottontail}
+\author{Dan Cecile}
+\maketitle
+
+\include{dedication}
+
+\frontmatter
+
+\include{preface}
+
+\cleartooddpage
+\tableofcontents
+
+\mainmatter
+
+\include{intro}
+\include{execution}
+\include{tech}
+
+\chapter{Test}
+Blash \cite{GOTO} \index{b}
+
+I have the naïvity to
+
+\begin{ccode}
+x = 1 1 +
+y == -
+f == x -- x 2 * +
+\end{ccode}
+
+That was...
+
+\backmatter
+
+\bibliographystyle{alpha}
+\bibliography{main}
+
+\printindex
+
+% Run script for ligatures, syntax highlighting,
+% cross-referencing function calls, errors, and output
+% (\verbatimoutput, \immediate\write18, \verbatiminput)
+% (run and save counted boxes to file, read in at start, later reference) (extract manually, or use special mode)
+
+\end{document}

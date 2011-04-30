@@ -1,0 +1,8 @@
+- write a physics-based game
+- write a POSIX OS, L4 kernel
+- run on a NanoNote Ben
+- compile to one standalone executable that doesn't need disk write access, for Linux and Windows
+- write fizzbuzz in Latin, Chinese, Devanagi scripts
+- beat C performance for a PNG decoder and an RSA encryptor
+- open 10000 sockets with straight-line code on Linux and Windows
+- allow installed source-code to be JIT-compiled (including FFI) without performance penalty

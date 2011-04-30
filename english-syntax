@@ -1,0 +1,26 @@
+rem % comment
+rem-begin rem-end %[% %]% block comment
+begin end [ ] delay
+def = declaration, modificaiton
+mod-def &= modification
+" " string
+""" """ literal string
+beginbegin endend [[ ]] interpolation
+at-module @ module
+submodule . module path
+block : whitespace delay
+thingy _ insertion marker
+then , clauses
+lambda -> lambda
+
+line-end ; statement
+deref * dereference
+
+uber ` higher order
+plus + plus
+minus - minus
+times * times
+power ** exponent
+dev / divide
+index-get >> get
+index-set << set
