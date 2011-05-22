@@ -2,6 +2,7 @@
 
 JIT: llvm, DynASM
 Serialization: upc, libyaml
+DB: leveldb, tdb
 Compression: zlib, bsdtar, snappy
 FFI: libffi
 I/O: 0mq, libev, PhysicsFS
@@ -10,5 +11,6 @@ Numbers: GMP, MPFR
 GC: gc
 Concurrency: qthreads, libtask, hwloc
 Tracing: google-perftools, oprofile, dtrace
+Graphics: OpenGL, harfbuzz
 Audio: PortAudio, libao
 Memory allocation: jemalloc
