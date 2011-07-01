@@ -1,376 +1,259 @@
 \chapter{Scope}
 
+\section{Main parts}
 \begin{itemize}
-
-\item Syntax
-
-  \begin{itemize}
-
-  \item Concatenative
-
-  \item Point free
-
-  \item Lists, sets, dictionaries
-
-  \item Record definition and extension
-
-  \item Repetition (including no comprehensions)
-
-  \item Alternative
-
-  \item Import/export
-
-  \item Namespaces
-
-  \item Flow vs. block styles
-
-  \item String interpolation
-
-  \end{itemize}
-
-\item Semantics
-
-  \begin{itemize}
-
-  \item Strict evaluation
-
-  \item Purity (and diagnostics)
-
-  \item No shared mutable data
-
-  \item Mutable pointers
-
-  \item Hidden dynamic state (monad alternative)
-
-  \item Crossing thread boundaries
-
-  \end{itemize}
-
-\item Existance
-
-  \begin{itemize}
-
-  \item Requirements
-
-  \item Other languages
-
-  \end{itemize}
-
-\item Metaprogramming
-
-  \begin{itemize}
-
-  \item Symbol metadata
-
-  \item Alternate evaluation
-
-  \item Automatic names (like numbers)
-
-  \item Reflection
-
-  \item Runtime evaluation
-
-  \item Bless and curse
-
-  \item Proxy
-
-  \end{itemize}
-
-\item Higher order functions
-
-  \begin{itemize}
-
-  \item Stack semantics (vs. Haskell)
-
-  \item Lexical closure
-
-  \item Dynamic state closure
-
-  \item Cross-thread marshalling
-
-  \end{itemize}
-
-\item Control flow
-
-  \begin{itemize}
-
-  \item Exceptions
-
-  \item Transparent continuation pausing
-
-  \item Data parallelism
-
-  \item Functinal paralellism
-
-  \item Events
-    
-  \end{itemize}
-
+\item Parsing
 \item Typing
-
-  \begin{itemize}
-
-  \item Impossibly recursive types
-
-  \item Implicit genericism
-
-  \end{itemize}
-
-\item Modules
-
-  \begin{itemize}
-
-  \item File/directory structure
-
-  \item Relative reference algorithm
-
-  \item Imports and exports
-
-  \item Namespaces
-
-  \item Properties
-
-  \item Monkey patching
-
-  \item Overload extensions
-
-  \item Visibility issues
-
-  \item Sandboxed code
-
-  \item Capability restrictions
-
-  \item Security audit report
-
-  \end{itemize}
-
-\item Overloading
-
-  \begin{itemize}
-
-  \item Anonymous types
-
-  \item Type-level computation and data
-
-  \item Conditional dispatch
-
-  \item Run-time polymorphism
-
-  \end{itemize}
-
-\item Globalization
-
-  \begin{itemize}
-
-  \item Symbol set
-
-  \item Symbol alternatives
-
-  \item Spaceless phrases
-
-  \item Translated names
-
-  \item Unicode usage
-
-  \end{itemize}
-
-\item Standard data structures and algorithms
-
-  \begin{itemize}
-
-  \item Map, filter, reduce, sort, ...
-
-  \item Arrays, splays, linked lists
-
-  \item Hash tables, balanced trees, random trees, radix trees, multisets
-
-  \item Sets as dictionaries (automatic lower memory usage)
-
-  \item Data parelellism
-
-  \item Lazy lists / iterators
-
-  \item Intering for fast comparision
-
-  \item Unicde text vs. code points
-
-  \item Floating and fixed point numbers
-
-  \item Arbitrary precision numbers
-
-  \item Graphs
-
-  \item Relational data
-
-  \end{itemize}
-
-\item Communication streams
-
-  \begin{itemize}
-
-  \item Memory-mapped IO
-
-  \item Files
-
-  \item Sockets
-
-  \item Transport layers (compression, encryption)
-
-  \item Iteratee
-
-  \item Event binding
-
-  \item Cooperative threading (multiplatform)
-
-  \item Resource allocation
-
-  \end{itemize}
-
-\item External bindings
-
-  \begin{itemize}
-
-  \item Target langauges
-
-  \item Target libraries
-
-  \item Resource allocation
-
-  \item Threading issues
-
-  \item Tail-call issues
-
-  \item Callbacks
-
-  \end{itemize}
-
-\item Other libraries
-
-  \begin{itemize}
-
-  \item Parsing
-
-  \item Serialization
-
-  \end{itemize}
-
-\item Portability
-
-  \begin{itemize}
-
-  \item Usage of standard C library (or not)
-
-  \item Cross-platform Unicode
-
-  \item Bootstrapping process
-
-  \item Environment settings (locales, encodings, error handling, line endings, file paths, standard IO streams)
-
-  \end{itemize}
-
+\item Compilation
+\item Standard library
+\item Metaprogramming
 \item Hot swapping
-
-  \begin{itemize}
-
-  \item Code path restrictions
-
-  \item Live data restrictions
-
-  \item Machine code implementation
-
-  \end{itemize}
-
-\item Code generation
-
-  \begin{itemize}
-
-  \item Inlined closures
-
-  \item Tuples to registers
-
-  \item Generic specificity
-
-  \item Source-only plus dynamic and lazy compilation
-
-  \item Optimization
-
-  \item Pure map/filter/reduce fusion
-
-  \item Tail calls
-
-  \item Continuations
-
-  \item Stack usage and calling conventions
-
-  \end{itemize}
-
-\item Profiling
-
-  \begin{itemize}
-
-  \item Low-hanging fruit (lint)
-
-  \item Security
-
-  \item API translations
-
-  \item Text translations
-
-  \item Purity (and memo opportunities)
-
-  \item Dynamic state
-
-  \item Data copying
-
-  \item Memory usage
-
-  \item CPU usage
-
-  \item Cache behaviour
-
-  \item Dispatch overhead
-
-  \end{itemize}
-
 \item REPL
-
-  \begin{itemize}
-
-  \item Interactive type errors (like exceptions)
-
-  \item Automatic reload
-
-  \end{itemize}
-
-\item Packaging
-
-  \begin{itemize}
-
-  \item No external dependencies option
-
-  \item Full CPAN-like package system (distro-friendly)
-
-  \end{itemize}
-
-\item Automated testing
-
-  \begin{itemize}
-
-  \item Random reducable data
-
-  \item Mocking
-
-  \end{itemize}
-
-\item Automated documentation
-
-  \begin{itemize}
-
-  \item Plain comment docstrings
-
-  \item Example typings
-
-  \end{itemize}
-
+\item Annotations
+\item Documentation
 \end{itemize}
 
+\section{Details}
+\begin{itemize}
+\item Existance
+  \begin{itemize}
+  \item Requirements: 091218, 091219, 091223, 5
+  \item Goals: 92, 132, 321
+  \item Microscalability: 204, 278
+  \item Game development: 127, 137
+  \item Other languages: 235, 247
+  \item Values: 7
+  \item Lisp: 12
+  \end{itemize}
+\item Syntax
+  \begin{itemize}
+  \item Concatenative: 091225
+  \item Point free
+  \item Pointed: 100106, 100106
+  \item Lists, sets, dictionaries
+  \item Lists, lambdas: 37
+  \item Record definition and extension: 56, 99, 108, 258, 314, 320, 321
+  \item Record access: 149
+  \item Tagged types: 30, 52, 56
+  \item Repetition (including no comprehensions)
+  \item Alternative: 26, 31, 144, 218
+  \item Catch: 26
+  \item Block comments: 119
+  \item Import/export
+  \item Namespaces
+  \item Flow vs. block styles: 152, 156, 193, 232, 238, 296
+  \item Block placeholder: 105
+  \item String interpolation: 203, 299, 325
+  \item Custom literals: 51
+  \item Pointers: 151
+  \item List indexing: 154
+  \item Modification assignment: 159, 195
+  \item Arbitrary identifiers: 175
+  \item Automated documentation
+    \begin{itemize}
+    \item Plain comment docstrings
+    \item Example typings
+    \end{itemize}
+  \item Globalization
+    \begin{itemize}
+    \item Special symbol set: 222
+    \item Special symbol alternatives
+    \item Spaceless phrases: 187, 221
+    \item Unicode usage: 146, 189, 197, 206, 207, 225, 233
+    \end{itemize}
+  \end{itemize}
+\item Builtin semantics
+  \begin{itemize}
+  \item Strict evaluation
+  \item Stack semantics (vs. Haskell)
+  \item Purity (and diagnostics): 100107
+  \item No shared mutable data: 100106, 155
+  \item Tuple promotion/extraction: 22, 28
+  \item Mutable pointers: 58, 59
+  \item Resource allocation: 119
+  \item Crossing thread boundaries: 73
+  \item Fault tolerance: 64, 81, 123
+  \item Lexical closure
+  \item Dynamic state closure
+  \item Continuations/coroutines: 64, 207, 231
+  \item Data parallelism
+  \item Functinal paralellism
+  \item REPL-level power: 180
+  \item Single-purpose locales
+  \item Internationalization: 206
+  \item Typing
+    \begin{itemize}
+    \item Impossibly recursive types
+    \item Implicit genericism: 091225, 28, 176
+    \item Anonymous types: 32, 103
+    \item Type-level computation and data: 38, 42
+    \item Run-time polymorphism: 51, 95, 104
+    \end{itemize}
+  \item Metaprogramming
+    \begin{itemize}
+    \item Symbol metadata
+    \item Decorators: 37, 328
+    \item Alternate evaluation
+    \item Automatic names (like numbers)
+    \item Reflection: 20
+    \item Runtime evaluation
+    \item Bless and curse
+    \item Proxy
+    \item Macros: 20, 142, 177
+    \item Transparent continuation pausing: 58, 67
+    \item Implicit state: 68, 70, 75
+    \item Safety policies: 69, 166
+    \item Dispatch hints: 95, 196
+    \item Virtual properties: 177
+    \item First-class environments: 320
+    \item First-class modules
+    \end{itemize}
+  \item Modules
+    \begin{itemize}
+    \item File/directory structure: 228
+    \item Relative reference algorithm: 140
+    \item Imports and exports: 142, 324
+    \item Translated names: 147, 200, 214
+    \item Namespaces: 136, 219
+    \item Properties
+    \item Monkey patching
+    \item Overload extensions: 172
+    \item Visibility issues
+    \item Sandboxed code
+    \item Capability restrictions
+    \item No external dependencies option
+    \item Full CPAN-like package system (distro-friendly): 133, 146, 182
+    \end{itemize}
+  \end{itemize}
+\item Libraries
+  \begin{itemize}
+  \item Vocabulary: 48, 137, 145
+  \item Short-circuit boolean operators: 116
+  \item Unicode/string manipulation: 147, 181
+  \item Delayed (lazy) values: 292
+  \item Standard data structures and algorithms
+    \begin{itemize}
+    \item Map, filter, reduce, sort, ...
+    \item Arrays, splays, linked lists
+    \item Hash tables, balanced trees, random trees, radix trees, multisets: 30
+    \item Graphs, monadic regions
+    \item Sets as dictionaries (automatic lower memory usage)
+    \item Relational, indexed data: 110, 117, 120
+    \item Data parelellism
+    \item Lazy lists / iterators: 134, 276
+    \item Interning for fast comparision: 187
+    \item Unicde text vs. code points
+    \item Floating and fixed point numbers: 18, 21, 49
+    \item Arbitrary precision numbers
+    \item Graphs
+    \item Relational data
+    \end{itemize}
+  \item Communication streams
+    \begin{itemize}
+    \item Memory-mapped IO
+    \item Files
+    \item Sockets
+    \item Transport layers (compression, encryption)
+    \item Iteratee: 312
+    \item Event binding: 42, 89, 94
+    \item Cooperative threading (multiplatform): 279
+    \item Cross-thread messaging: 74
+    \item Tuplespace communication
+    \item Logging: 100104, 303
+    \end{itemize}
+  \item External bindings
+    \begin{itemize}
+    \item Target langauges
+    \item Target libraries
+    \item Resource allocation
+    \item Threading issues
+    \item Tail-call issues
+    \item Callbacks
+    \end{itemize}
+  \item Other libraries
+    \begin{itemize}
+    \item Parsing: 167, 302
+    \item Serialization: 113, 172, 245
+    \end{itemize}
+  \item Automated testing
+    \begin{itemize}
+    \item Random reducable data: 158, 304
+    \item Mocking
+    \end{itemize}
+  \end{itemize}
+\item Implementation
+  \begin{itemize}
+  \item Self-hosting: 44, 326, 328
+  \item Interpreted types: 53, 57
+  \item Tail-call-optimized interpreter: 61, 227
+  \item Garbage collection: 155, 156, 197
+  \item Portability
+    \begin{itemize}
+    \item Usage of standard C library (or not)
+    \item Cross-platform Unicode
+    \item Bootstrapping process
+    \item Environment settings (locales, encodings, error handling, line endings, file paths, standard IO streams)
+    \end{itemize}
+  \item Hot swapping
+    \begin{itemize}
+    \item Code path restrictions
+    \item Live data restrictions
+    \item Machine code implementation
+    \end{itemize}
+  \item Code generation
+    \begin{itemize}
+    \item Inlined closures
+    \item Tuples to registers: 100106
+    \item Generic specificity
+    \item Source-only plus dynamic and lazy compilation
+    \item Calling convention: \cite{LTUG}
+    \item Tail-call optimization: 131, \cite{LTUG}, 227, 239
+    \item Pure map/filter/reduce fusion
+    \item Continuations
+    \item Stack usage and calling conventions
+    \item Constant references: 3, 11
+    \item Hot path optimization
+      % Random sampling, or initial instrumentation
+    \item JIT code-fixation using user data: 43
+    \item Ban data shuffling: 37
+    \end{itemize}
+  \end{itemize}
+\item Extra tools
+  \begin{itemize}
+  \item API documenation browser
+  \item Annotations
+    \begin{itemize}
+    \item User interaction: 21, 175, 194
+    \item Low-hanging fruit (lint)
+    \item Security: 308
+    \item API translations
+    \item Text translations
+    \item Purity (and memo opportunities): 69
+    \item Dynamic state
+    \item Data copying
+    \item Memory usage
+    \item CPU usage
+    \item Cache behaviour
+    \item Dispatch overhead
+    \end{itemize}
+  \item REPL
+    \begin{itemize}
+    \item Requirements: 4
+    \item API help: 105
+    \item Stepwise debugger: 237
+    \item Automatic snapshots: 325
+    \item Pretty printer: 259
+    \item Interactive type errors (like exceptions): 103, 188
+    \item Automatic reload
+    \item Multiple interactive threads: 78
+    \end{itemize}
+  \end{itemize}
+\item Example code
+  \begin{itemize}
+  \item Simulation: 37, 73
+  \item Custom nesting: 52
+  \item State machine dispatch: 101
+  \item Dynamic properties: 111
+  \item Hidden impurity: 177, 191
+  \end{itemize}
+\end{itemize}

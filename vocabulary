@@ -52,6 +52,11 @@ Functions:
 - Haskell: uncurry
   Cottontail: undo, expand-into? uncurry
 
+- Haskell: .
+  Cottontail: cat
+
+- Haskell: swap
+
 Conditions:
 - C: switch/case/default
   Haskell: case of

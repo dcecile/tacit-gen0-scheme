@@ -1,0 +1,78 @@
+\chapter{Weightings}
+
+First off, I need to get the 90\% bread-and-butter done extremely
+well. This includes what the programmer faces each time they sit down
+and start typing, and it includes the key benefits that are expected
+from Cottontail.
+
+Next, I don't want to waste all of my complexity on silly, whimsical,
+half-ass features. There are limits on the total code size, and
+there's limits on each component.
+
+Finally, some parts of the language must be taught extremely well, and
+others can be explorered and learned outside of this formal tutorial
+document. These priorities need to be set too.
+
+
+\section{Polish}
+
+\begin{itemize}
+\item Syntax:             40\%
+\item Documentation:      30\%
+\item REPL:               20\%
+\item Machine code:       10\%
+\end{itemize}
+
+
+\section{Code size}
+
+Here are some example code sizes:
+
+\begin{itemize}
+\item Linux:          9,400,000
+\item GCC:            2,600,000
+\item GNU C Library:  1,000,000
+\item CPython:          660,000
+\item Racket:           660,000
+\item LLVM:             540,000
+\item GLib:             340,000
+\item GHC:              330,000
+\item Go:               310,000
+\item Antlr:             42,000
+\item LuaJIT:            40,000
+\item BoehmGC:           29,000
+\item Readline:          24,000
+\item Lua:               20,000
+\item Tinyscheme:         5,000
+\end{itemize}
+
+There's no way I can write or maintain a behemoth like Linux or GCC.
+Even Racket and Haskell are an order of magnitude too large for one
+person, and for my performance goals. My total code size will be less
+than LuaJIT's: 40,000 lines of code (including tests) is the limit.
+
+In specific terms, my budget will be used as follows:
+
+\begin{itemize}
+\item Standard library:  10,000
+\item Tests:             10,000
+\item Typing:             5,000
+\item Compilation:        5,000
+\item REPL:               3,000
+\item Hot swapping:       3,000
+\item Parsing:            2,000
+\item Annotations:        2,000
+\end{itemize}
+
+
+\section{Formal documentation}
+
+\begin{itemize}
+\item Standard library:  40\%
+\item REPL:              20\%
+\item Metaprogramming:   10\%
+\item Annotations:       10\%
+\item Testing:           10\%
+\item Hot swapping:       5\%
+\item Typing:             5\%
+\end{itemize}

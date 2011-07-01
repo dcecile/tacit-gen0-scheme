@@ -14,3 +14,4 @@ Tracing: google-perftools, oprofile, dtrace
 Graphics: OpenGL, harfbuzz
 Audio: PortAudio, libao
 Memory allocation: jemalloc
+Inheritance graphs: gnuclad
