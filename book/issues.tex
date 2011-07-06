@@ -3,7 +3,6 @@
 \begin{itemize}
 \item Modules are tied directly to files. This makes dynamically imported modules hard, and multiple instantions also annoying.
 \item Flow-style needs to be weeded out, and a sound syntax determined.As things stand, it's too confusing.
-\item All properties are globally-scoped. This makes named-parameter methods (like try-catch) annoying, and it is just messy.
 \item Namespace @ operator not yet officially banned.
 \item Syntaxes of lists, sets, dictionaries, and lambdas are all too ambiguous.
 \item The core language requires a large set of functional-programming semantics: tail calls, closrues, copy-on-write, pointers...
@@ -11,5 +10,4 @@
 \item REPL-level goes haywire with recursive modules. Module extensions, overloading, and monkey-patching also cause problems.
 \item Overloading is unsafe and can cause unexpected breakage in faraway modules.
 \item Spaceless syntax doesn't work when dots or spaces are required for property assignment and argument specification.
-\item Commas maybe (probably) need to be cut, because they're only useful for switches and ifs.
 \end{itemize}

@@ -1,6 +1,9 @@
 common:
   -,.%()
 
+excluding ja-kana-ime and hi:
+  -,.%():=
+
 ja kana ime:
 - no < > # : ; = - & @ characters
 - ゛ぬふあうえおやゆよわほほ
@@ -34,7 +37,7 @@ ru:
   ЯЧСМИТЬБЮ,
 
 hi:
-- no < > ; : @ signs
+- no < > ; : @ = signs
 - ॊ१२३४५६७८९०-
   बहगदजडॉ
   परकतचचट
@@ -71,7 +74,7 @@ zh pinyin ime: # similary to canjie and jyutping
   ZXCVBNM《》？
 
 de:
-- no < > # @ signs
+- no < > @ signs
 - 1234567890ß
   qwertzuiopü+#
   asdfghjklöäyxcvbnm,.-
