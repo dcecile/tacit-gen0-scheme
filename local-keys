@@ -1,11 +1,96 @@
-common:
-  -,.%()
+--- non-problem options ---
 
-excluding ja-kana-ime and hi:
-  -,.%():=
+,
+  clause
+
+"『』
+  interpolate
+  hi
+
+.
+  property
+  zh-bpmf-ime
+
+()[]{}
+  lambda
+  ja-kana-ime
+
+:
+  scope/modify
+  hi ja-kana-ime
+
+=
+  assign/define
+  hi ja-kana-ime
+
+%
+  comment
+  hi ja-kana-ime
+
+!
+  set-pointer
+  hi ja-kana-ime
+
+*×
+  deref
+
+;
+  statement
+  ru hi ja-kana-ime
+
+'「」
+  strict-string
+  ru hi
+
+#
+  modify
+  ru hi ja-kana-ime
+
+
+--- unsatisfactory options ---
+
+
+--- usable table ---
+
+               - = ; ' , . /   ! @ # $ % & * ( ) _ + : " ?
+ko hangul ime  x x x x x x x   x x x x x x x x x x x x x x
+he             x x x x x x x   x x x x x x x x x x x x x x
+fr-CA          x x x x x x x   x x x x x x x x x x x x x x
+ja-ime         x x x x x x     x x x x x x x x x x x x x x
+es             x x x x x x x   x   x x x x x x x x x x x x
+de             x x x x x x x   x   x x x x x x x x x x x x
+ar             x x x x x x x   x x x x x     x x x x x x x
+fr             x x x x x x x   x x x   x   x x x x x x x x
+zh-pinyin-ime  x x x x x x x   x x x   x x x x x   x x x x
+zh-bpmf-ime      x   x x       x x x x x x x x x x x x x x
+dk             x x x x x x x   x   x   x x x x x x x x x x
+ru             x x x   x x     x       x   x x x x x x x x
+hi             x       x x         x x   x x x x          
+ja-kana-ime    x       x x                             x  
+
+
+--- full table ---
+
+               ` - = [ ] \ ; ' , . /   ~ ! @ # $ % ^ & * ( ) _ + { } | : " < > ?
+ko hangul ime  x x x x x x x x x x x   x x x x x x x x x x x x x x x x x x x x x
+he               x x x x x x x x x x   x x x x x x x x x x x x x x x x x x x x x
+ja-ime         x x x       x x x x     x x x x x x x x x x x x x x x x x x x x x
+ar               x x     x x x x x x     x x x x x x     x x x x x x x x x x x x
+fr               x x x x   x x x x x   x x x x   x x   x x x x x x x   x x     x
+zh-pinyin-ime  x x x       x x x x x   x x x x   x   x x x x   x x x x x x     x
+zh-bpmf-ime    x   x x x     x x       x x x x x x   x x x x x x x x x x x x x x
+fr-CA            x x     x x x x x x     x x x x x   x x x x x x       x x     x
+es               x x       x x x x x     x   x x x   x x x x x x       x x     x
+de               x x       x x x x x     x   x x x   x x x x x x       x x     x
+dk               x x       x x x x x     x   x   x   x x x x x x       x x     x
+ru               x x     x x   x x       x       x     x x x x x       x x     x
+hi               x             x x           x x   x x x x x                    
+ja-kana-ime      x             x x                                       x      
+
+
+--- full data ---
 
 ja kana ime:
-- no < > # : ; = - & @ characters
 - ゛ぬふあうえおやゆよわほほ
   たていすかんなにらせ゜むろ
   ちとしはきくまのりれゃ
@@ -16,9 +101,8 @@ ja kana ime:
   っさそゐこみも、。・
 
 zh bopomofo ime:
-- no ; - / symbols
 - ｀ㄅㄉˇˋㄓˊ˙ㄚㄞㄢㄦ＝
-  ㄆㄊㄍㄐㄔㄗㄧㄛㄟㄣ［］、
+  ㄆㄊㄍㄐㄔㄗㄧㄛㄟㄣ「」、
   ㄇㄋㄎㄑㄕㄘㄨㄜㄠㄤ‘
   ㄈㄌㄏㄒㄖㄙㄩㄝㄡㄥ
 - ～！＠＃＄％……＆＊（）＿＋
@@ -27,7 +111,6 @@ zh bopomofo ime:
   ZXCVBNM＜＞？
 
 ru:
-- no < > # $ / & @ symbols
 - ё1234567890-=
   йцукенгшщзхъ\
   фывапролджэ
@@ -37,7 +120,6 @@ ru:
   ЯЧСМИТЬБЮ,
 
 hi:
-- no < > ; : @ = signs
 - ॊ१२३४५६७८९०-
   बहगदजडॉ
   परकतचचट
@@ -48,7 +130,6 @@ hi:
   ऎणऩऴळशष।य़
 
 fr:
-- no < > # $ @ signs
 - ²&é"'(-è_çà)=
   azertyuiop*
   qsdfghjklmù
@@ -62,10 +143,9 @@ fr:
   @ßðđŋħjĸłµ^
   ł»¢“”n´·
 
-zh pinyin ime: # similary to canjie and jyutping
-- no < > _ symbols (alts set)
+zh pinyin ime: # similar to canjie and jyutping
 - ｀1234567890－＝
-  qwertyuiop［］、
+  qwertyuiop「」、
   asdfghjkl；‘
   zxcvbnm，。／
 - ～！＠＃￥％……＆＊（）——＋
@@ -74,7 +154,6 @@ zh pinyin ime: # similary to canjie and jyutping
   ZXCVBNM《》？
 
 de:
-- no < > @ signs
 - 1234567890ß
   qwertzuiopü+#
   asdfghjklöäyxcvbnm,.-
@@ -83,26 +162,24 @@ de:
   YXCVBNM;:_
 
 es:
-- no < > # @ signs (alts set)
 - º1234567890'¡
-  qwertyuiopç
+  qwertyuiop +ç
   asdfghjklñ
   zxcvbnm,.-
 - ª!"·$%&/()=?¿
+  QWERTYUIOP *Ç
   ASDFGHJKLÑ
   ZXCVBNM;:_
 
 dk:
-- no < > @ signs
 - ½1234567890+
-  asdfghjklæø
+  asdfghjklæø'
   zxcvbnm,.-
 - §!"#¤%&/()=?
-  ASDFGHJKLÆØ
+  ASDFGHJKLÆØ*
   ZXCVBNM;:_
 
 fr-CA multi:
-- no < > signs (alts set)
 - /1234567890-=
   qwertyuiopçà
   asdfghjkl;è
@@ -113,7 +190,6 @@ fr-CA multi:
   ZXCVBNM'"É
 
 ja ime:　# imeable 『【「{[〔［〈《＜<≪《〈≦ / ÷
-- totally fine, annoying spaces
 - `1234567890ー=
   qwertyuiop『』\
 　asdfghjkl;'
@@ -125,7 +201,6 @@ ja ime:　# imeable 『【「{[〔［〈《＜<≪《〈≦ / ÷
 
 
 ar:
-- totally fine
 - ذ1234567890-=
   ضصثقفغعهخحجد\
   شسيبلاتنمكط
@@ -136,7 +211,6 @@ ar:
   ~}{ﻵآ',.؟
 
 he:
-- totally fine
 - ;1234567890-=
   /'קראטוןםפ][\
   שדגכעיחלךף,
@@ -147,7 +221,6 @@ he:
   ZXCVBNM><?
 
 ko hangul ime:
-- totally fine
 - `1234567890-=
   ㅂㅈㄷㄱㅅㅛㅑㅐㅔ[]\
   ㅁㄴㅇㄹㅎㅗㅓㅏㅣ;'
