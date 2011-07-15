@@ -1,0 +1,12 @@
+.*.swp
+/book/*.aux
+/book/*.bbl
+/book/*.blg
+/book/*.idx
+/book/*.ilg
+/book/*.ind
+/book/*.log
+/book/*.out
+/book/*.pdf
+/book/*.toc
+/book/*.xdv
