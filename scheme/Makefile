@@ -1,6 +1,5 @@
 shell: Makefile tinyscheme shell.c
 	gcc -o shell \
-          -O3 \
           -std=gnu99 \
           -DSTANDALONE=0 \
           -DUSE_INTERFACE=1 \

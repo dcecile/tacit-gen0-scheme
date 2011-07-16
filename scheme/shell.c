@@ -8,39 +8,37 @@ pointer write_binary(scheme *sc, pointer args) {
       || !sc->vptr->is_string(sc->vptr->pair_car(args))) {
     printf("first string\n");
     return sc->NIL; }
-  { char *filename = sc->vptr->string_value(sc->vptr->pair_car(args));
-    FILE *file = fopen(filename, "wb");
-    long written = 0;
-    if (file == NULL) {
-      printf("fopen\n");
+  char *filename = sc->vptr->string_value(sc->vptr->pair_car(args));
+  FILE *file = fopen(filename, "wb");
+  long written = 0;
+  if (file == NULL) {
+    printf("fopen\n");
+    return sc->NIL; }
+  args = sc->vptr->pair_cdr(args);
+  if (args == sc->NIL) {
+    printf("second list\n");
+    return sc->NIL; }
+  args = sc->vptr->pair_car(args);
+  while (args != sc->NIL) {
+    if (!sc->vptr->is_integer(sc->vptr->pair_car(args))) {
       return sc->NIL; }
-    args = sc->vptr->pair_cdr(args);
-    if (args == sc->NIL) {
-      printf("second list\n");
+    long byte = sc->vptr->ivalue(sc->vptr->pair_car(args));
+    if (byte != (0xFF & byte)) {
+      printf("byte\n");
       return sc->NIL; }
-    args = sc->vptr->pair_car(args);
-    while (args != sc->NIL) {
-      if (!sc->vptr->is_integer(sc->vptr->pair_car(args))) {
-        return sc->NIL; }
-      { long byte = sc->vptr->ivalue(sc->vptr->pair_car(args));
-        if (byte != (0xFF & byte)) {
-          printf("byte\n");
-          return sc->NIL; }
-        { int status = fputc((int)(byte), file);
-          if (status == EOF) {
-            printf("fputc\n");
-            return sc->NIL; }
-          written++;
-          args = sc->vptr->pair_cdr(args); } } }
-    { int status = fclose(file);
-      if (status == EOF) {
-        printf("fclose\n");
-        return sc->NIL; } }
-    return sc->vptr->mk_integer(sc, written); } }
+    int status = fputc((int)(byte), file);
+    if (status == EOF) {
+      printf("fputc\n");
+      return sc->NIL; }
+    written++;
+    args = sc->vptr->pair_cdr(args); }
+  int status = fclose(file);
+  if (status == EOF) {
+    printf("fclose\n");
+    return sc->NIL; }
+  return sc->vptr->mk_integer(sc, written); }
 
-pointer repl(scheme *sc, pointer args) {
-  scheme_load_file(sc, stdin);
-  return sc->NIL; }
+//pointer get_stdin(scheme *sc, pointer args) {
 
 int main(int argc, char *argv[]) {
   scheme vsc;
@@ -56,12 +54,6 @@ int main(int argc, char *argv[]) {
     sc->global_env,
     sc->vptr->mk_symbol(sc,"write-binary"),
     sc->vptr->mk_foreign_func(sc, write_binary));
-  sc->vptr->scheme_define(
-    sc,
-    sc->global_env,
-    sc->vptr->mk_symbol(sc,"repl"),
-    sc->vptr->mk_foreign_func(sc, repl));
-  scheme_set_input_port_file(sc, stdin);
   scheme_set_output_port_file(sc, stdout);
   FILE *file = fopen(argv[1], "r");
   if (file == NULL) {
@@ -69,6 +61,8 @@ int main(int argc, char *argv[]) {
     return 1; }
   scheme_load_named_file(sc, file, argv[1]);
   fclose(file);
-  { int retcode = sc->retcode;
-    scheme_deinit(sc);
-    return retcode; } }
+  scheme_set_input_port_file(sc, stdin);
+  scheme_apply0(sc, "main");
+  int retcode = sc->retcode;
+  scheme_deinit(sc);
+  return retcode; }
