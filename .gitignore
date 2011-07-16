@@ -10,3 +10,5 @@
 /book/*.pdf
 /book/*.toc
 /book/*.xdv
+/scheme/shell
+/scheme/tinyscheme

@@ -1,0 +1,5 @@
+(load "tinyscheme/init.scm")
+(display "Hi from Scheme") (newline)
+(display (write-binary "x" '(0 1 2 3))) (newline)
+(display "Welcome")
+(repl)
