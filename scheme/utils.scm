@@ -6,12 +6,28 @@
         (x (car expr))
         (y (cdr expr)))
         (cond
-          ((or (not (list? x)) (not (eq? (car x) 'def)))
+          ((or (not (list? x)) (null? x))
             (cons x (def-form y)))
           (else
-            `((begin
-              (define ,@(cdr x))
-              ,@(def-form y)))))))))
+            (let (
+              (current (car x))
+              (next (cdr x)))
+              (cond
+                ((not (eq? current 'def))
+                  (cons (cons current (def-form next)) (def-form y)))
+                (else
+                  (let (
+                    (name (car next))
+                    (body (cdr next)))
+                    (cond
+                      ((pair? name)
+                        `((letrec (
+                          (,(car name) (lambda (,@(cdr name)) ,@(def-form body))))
+                          ,@(def-form y))))
+                      (else
+                        `((let (
+                          (,name ,@(def-form body)))
+                          ,@(def-form y)))))))))))))))
   `(define ,fn ,@(def-form body)))
 
 (define-macro (mk . props)
@@ -28,7 +44,18 @@
     ((environment? object)
       (eval member object))
     (else
-      (throw "invalid property object"))))
+      (*error-hook* "invalid property object" object member))))
+
+(define-macro (:* expr . props)
+  (let (
+    (value (gensym)))
+    `(let (
+      (,value ,expr))
+      ,(foldr
+        (lambda (value prop)
+          `(*colon-hook* (quote ,prop) ,value))
+        value
+        props))))
 
 (def (filter f x)
   (cond
@@ -38,18 +65,55 @@
       (cons (car x) (filter f (cdr x))))
     (else
       (filter f (cdr x)))))
-  
+
+(def (contains? f x)
+  (cond
+    ((null? x)
+      #f)
+    ((f (car x))
+      #t)
+    (else
+      (contains? f (cdr x)))))
+
+(def (split-at f x found not-found)
+  (def (rec x y)
+    (cond
+      ((null? x)
+        (not-found))
+      ((f (car x))
+        (found (reverse y) (cdr x)))
+      (else
+        (rec (cdr x) (cons (car x) y)))))
+  (rec x '()))
 
 (def (say . args)
   (apply display args)
   (newline))
+
+(def (with-error-handler handler code)
+  (def old-handler *error-hook*)
+  (set! *error-hook* handler)
+  (def result (code))
+  (set! *error-hook* old-handler)
+  result)
 
 (def (repl prompt env)
   (display prompt)
   (def obj (read))
   (cond
     ((not (eof-object? obj))
-      (write (eval obj env))
+      (call/cc
+        (lambda (done)
+          (with-error-handler
+            (lambda errors
+              (map
+                (lambda (e)
+                  (display e)
+                  (display " "))
+                errors)
+              (done '()))
+            (lambda ()
+              (write (eval obj env))))))
       (newline)
       (repl prompt env))
     (else (newline))))
