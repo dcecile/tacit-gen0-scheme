@@ -57,6 +57,19 @@
         value
         props))))
 
+(define-macro (resolves-to object . tests)
+  `(case (:* ,object type)
+    ,@(map
+      (lambda (test)
+        (def type (car test))
+        (def body (cdr test))
+        (case type
+          ('else
+            `(else ,@body))
+          (else
+            `((quote ,type) ,@body))))
+      tests)))
+
 (def (filter f x)
   (cond
     ((null? x)
@@ -97,7 +110,7 @@
   (set! *error-hook* old-handler)
   result)
 
-(def (repl prompt env)
+(def (generic-repl read eval-print prompt)
   (display prompt)
   (def obj (read))
   (cond
@@ -113,10 +126,17 @@
                 errors)
               (done '()))
             (lambda ()
-              (write (eval obj env))))))
+              (eval-print obj)))))
       (newline)
-      (repl prompt env))
+      (generic-repl read eval-print prompt))
     (else (newline))))
+
+(def (repl prompt env)
+  (generic-repl
+    read
+    (lambda (object)
+      (write (eval object env)))
+    prompt))
 
 (def (read-text filename)
   (call-with-input-file

@@ -1,7 +1,3 @@
-(load "tinyscheme/init.scm")
-(load "utils.scm")
-(load "tokenize.scm")
-
 (def (make-block lines)
   (mk
     (type 'block)
@@ -151,7 +147,7 @@
 
 (def (parse-error filename message tokens)
   (def (raise line)
-    (error
+    (*error-hook*
       (string-append
         filename ", "
         line ": " 
@@ -163,15 +159,13 @@
       (raise (number->string
         (:* (car tokens) line-number))))))
 
-(def (parse)
-  (def filename "../test/hello.ctn")
+(def (parse-text filename text)
   (def tokens
     (filter nonempty-line?
       (map tokenize
         (tag-line-numbers
           (map tag-indent
-            (lines
-              (read-text filename)))))))
+            (lines text))))))
   (say tokens)
   (parse-block -1 tokens
     (lambda (message tokens)
@@ -179,8 +173,67 @@
     (lambda (leftover tree)
       tree)))
 
-(def x (parse))
+(def (parse-file filename)
+  (parse-text
+    filename
+    (read-text filename)))
 
-(define (main)
-  (say x))
-  ;(repl "ts> " (current-environment)))
+(def (print-indent indent)
+  (display (make-string indent #\space)))
+
+(def (pretty-atom indent node)
+  (resolves-to node
+    (strng
+      (display "(strng")
+      (for-each
+        (lambda (p)
+          (display " ")
+          (cond
+            ((string? p)
+              (write p))
+            (else
+              (pretty-block indent p))))
+        node::parts)
+      (display ")"))
+    (call
+      (display node::name))
+    (else
+      (*error-hook* "unprintable atom" node))))
+
+(def (pretty-line indent node)
+  (print-indent indent)
+  (resolves-to node
+    (evaluate
+      (display "(evaluate")
+      (for-each
+        (lambda (a)
+          (display " ")
+          (pretty-atom indent a))
+        node::atoms)
+      (display ")"))
+    (declare
+      (display "(declare ")
+      (display node::name)
+      (display " (")
+      (cond
+        ((not (null? node::args))
+          (display (car node::args))
+          (for-each
+            (lambda (a)
+              (display " ")
+              (display a))
+            (cdr node::args))))
+      (display ")")
+      (newline)
+      (pretty-block (+ indent 2) node::block)
+      (display ")"))
+    (else
+      (*error-hook* "unprintable line" node))))
+
+(def (pretty-block indent node)
+  (pretty-line indent (car node::lines))
+  (for-each
+    (lambda (line)
+      (newline)
+      (pretty-line indent line))
+    (cdr node::lines)))
