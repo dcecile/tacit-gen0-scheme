@@ -30,12 +30,29 @@
                           ,@(def-form y)))))))))))))))
   `(define ,fn ,@(def-form body)))
 
-(define-macro (mk . props)
+(define-macro (mk~ . props)
   `(list
     ,@(map
       (lambda (prop)
-        `(cons (quote ,(car prop)) (begin ,@(cdr prop))))
+        `(cons ,(car prop) (begin ,@(cdr prop))))
       props)))
+
+(define-macro (mk . props)
+  `(mk~
+    ,@(map
+      (lambda (prop)
+        (cons `(quote ,(car prop)) (cdr prop)))
+      props)))
+
+(define-macro (xtn~ obj . props)
+  `(append
+    (mk~ ,@props)
+    ,obj))
+
+(define-macro (xtn obj . props)
+  `(append
+    (mk ,@props)
+    ,obj))
 
 (def (*colon-hook* member object)
   (cond
@@ -56,6 +73,16 @@
           `(*colon-hook* (quote ,prop) ,value))
         value
         props))))
+
+(def (:*~ value . props)
+  (foldr
+    (lambda (value prop)
+      (*colon-hook* prop value))
+    value
+    props))
+
+(def (has?~ object prop)
+  (assq prop object))
 
 (define-macro (resolves-to object . tests)
   `(case (:* ,object type)
