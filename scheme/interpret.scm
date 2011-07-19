@@ -35,8 +35,8 @@
             (lambda (x)
               (display " ")
               (display x))
-            stack)
-          (set! repl-env env))))
+            (reverse stack))
+          (set! repl-env (collapse-one-env env)))))
     "ctn> "))
 
 (def (empty-env)
@@ -44,6 +44,16 @@
 
 (def (extend-env env)
   (cons (mk~) env))
+
+(def (collapse-one-env env)
+  (def now (car env))
+  (def old (cadr env))
+  (def older (cddr env))
+  (cons
+    (append
+      now
+      old)
+    older))
 
 (def (add-env-declare env name node)
   (def now (car env))
@@ -65,7 +75,7 @@
         (closure closure))))
     old))
 
-(def (get-env env name)
+(def (get-env env name return)
   (cond
     ((null? env)
       (*error-hook* "undefined:" name)))
@@ -73,9 +83,9 @@
   (def old (cdr env))
   (cond
     ((has?~ now name)
-      (:*~ now name))
+      (return env (:*~ now name)))
     (else
-      (get-env old name))))
+      (get-env old name return))))
 
 (def (builtin-say env stack k)
   (say (car stack))
@@ -108,12 +118,21 @@
               node::parts))
           stack)))
     (call
-      (def ref (get-env env node::name))
-      (resolves-to ref
-        (builtin
-          (ref::closure env stack k))
-        (else
-          (*error-hook* "can't call:" ref))))
+      (get-env env node::name
+        (lambda (scope ref)
+          (resolves-to ref
+            (builtin
+              (ref::closure env stack k))
+            (declare
+              (say "found")
+              (eval-block
+                (:* ref node block)
+                scope
+                stack
+                (lambda (ignored-env stack)
+                  (k env stack))))
+            (else
+              (*error-hook* "can't call:" ref))))))
     (else
       (*error-hook* "can't evaluate atom:" node))))
 
@@ -139,19 +158,19 @@
 
 (def (eval-block node env stack k)
   (say "block")
-  (def env (extend-env env))
+  (def local-env (extend-env env))
   (cond
     ((null? node::lines)
       (k env stack)))
-  (def (rec line next env)
+  (def (rec line next local-env)
     (cond
       ((null? next)
-        (eval-line line env stack k))
+        (eval-line line local-env stack k))
       (else
-        (eval-line line env '()
-          (lambda (env unused-stack)
-            (rec (car next) (cdr next) env))))))
-  (rec (car node::lines) (cdr node::lines) env))
+        (eval-line line local-env '()
+          (lambda (local-env unused-stack)
+            (rec (car next) (cdr next) local-env))))))
+  (rec (car node::lines) (cdr node::lines) local-env))
 
 (def (main)
   (say (builtin-env))

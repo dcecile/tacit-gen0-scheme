@@ -57,7 +57,12 @@
 (def (*colon-hook* member object)
   (cond
     ((list? object)
-      (cdr (assq member object)))
+      (def found (assq member object))
+      (cond
+        (found
+          (cdr found))
+        (else
+          (*error-hook* "property not found:" member))))
     ((environment? object)
       (eval member object))
     (else

@@ -32,7 +32,6 @@
     (name name)))
 
 (def (parse-evaluate indent tokens e k)
-  (say "evaluate")
   (def (rec tokens result)
     (def current-line (car tokens))
     (def next-line (cdr tokens))
@@ -62,7 +61,6 @@
   (rec tokens '()))
 
 (def (parse-declare indent sig body tokens e k)
-  (say "declare")
   (def (done-block tokens block)
     (def sig-symbols
       (map
@@ -84,13 +82,11 @@
     (else
       (parse-evaluate indent (cons body tokens) e
         (lambda (tokens evaluate)
-          (say "done evaluate")
           (done-block
             tokens
             (make-block (cons evaluate '()))))))))
 
 (def (parse-line indent tokens e k)
-  (say "line")
   (def current (car tokens))
   (def next (cdr tokens))
   (def (tokens-contain? s yes no)
@@ -117,7 +113,6 @@
       (parse-evaluate indent tokens e k))))
 
 (def (parse-block indent tokens e k)
-  (say "block")
   (def (missing)
     (e "missing block" tokens))
   (cond
@@ -141,7 +136,6 @@
           (else
             (parse-line base-indent tokens e
               (lambda (tokens line)
-                (say "done line")
                 (rec tokens (cons line lines)))))))))
   (rec tokens '()))
 
@@ -166,7 +160,6 @@
         (tag-line-numbers
           (map tag-indent
             (lines text))))))
-  (say tokens)
   (parse-block -1 tokens
     (lambda (message tokens)
       (parse-error filename message tokens))
