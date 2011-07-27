@@ -1,16 +1,16 @@
 \chapter{Welcome}
 
 Welcome to the programming language Cottontail. It's a language
-designed for practical and flexible game programming. Be assured that
+designed for practical and flexible game programming. Rest assured,
 you have my warmest welcome for taking the first steps into this land.
 
 Before getting into the details, let me remind you of one irrevocable
 guarantee. When you get stumped with no clear solution in sight, your
-situation won't be derrided as marginal or wrongheaded. A solution
-will be found; be it in documentation, in libraries, in tools, or in
-language changes. If Cottontail can no longer be put to work solving
-strange problems, it's time for it to retire. Scope and methodology be
-damned, a solution will be found to your problem.
+situation won't be derrided as marginal or wrongheaded. Ask me, and a
+solution will be found; be it in documentation, in libraries, in
+tools, or in language changes. If Cottontail can no longer be put to
+work solving strange problems, it's time for it to retire. Scope and
+methodology be damned, a solution will be found to your problem.
 
 \pnote{Inspired by \cite{YES}.}
 
@@ -27,16 +27,16 @@ coding up my game, with a bit of physics and graphics already done, I
 was starting to consider level design. Level design in my case meant
 custom events and logic, which led to thoughts of specialized,
 interactive game objects. Common wisdom says that the solution here is
-to integrate a scripting language. With a C++ codebase humming along,
-I knew that throwing a scripting language like Lua into the mix would
-start to put pressure on my performance goals, especially if
-``customized logic'' included physics.
+to integrate a scripting language. Although my C++ code was giving me
+a decent framerate, I knew that throwing a scripting language like Lua
+into the mix would start to put pressure on my performance goals,
+especially if the ``custom logic'' included physics.
 
 In this case, my core gameplay depended on physics, especially the fun
-kind that requires lots of experimenting and tweaking in order to get
-right. Quick feedback on my innovations is a perfect task for a
-scripting language, right? As my mind contorted with the thought of
-dividing my code into a static-performant part and a
+kind of mechanics that require lots of experimenting and tweaking in
+order to get right. Quick feedback on my innovations is a perfect task
+for a scripting language, right? As my mind contorted with the thought
+of dividing my code into a static-performant part and a
 flexible-inefficient part, I knew I was stumped. I didn't have the
 insight or the guts to make that kind of a compromise.
 
@@ -51,21 +51,25 @@ this goal, without compromising either performance, or interactivity.
 It won't give your players low framerates, and it won't make you wait
 even a second to try out new changes to your game.
 
-Along the way of course, I've adopted a number of philosophies which
-may help or hinder my progress towards this goal, but I stick with
-them nonetheless. Most of it is simply about why I find programming
-fun. You'll see evidence of these æsthetics as you progress through
-this book:
+To acheive those basic goals, I've adopted a number of philosophies,
+selfishly based on what I find fun in programming. These æsthetics are
+based on my own experiences in programming, so don't worry if some
+parts here sound like jibberish. These concepts form a core part of
+the language, so they'll become clear in due course through
+descriptions and examples in the rest of the book.
 
 \begin{itemize}
 
-\item Type declarations are out. I've experienced a world of pain
-trying to talk about types in C++ and Haskell. I've also experienced
-the bliss in Python and Haskell of not having to mention types at all.
-
 \item Generic programming is in. In Python and C++, working with
 generic data structures can be a joy. In Cottontail, these benefits
-are intended to extend far beyond mundane data structures.
+are intended to extend far beyond standard-library data structures,
+to any function that you write yourself.
+
+\item Type declarations are out. Accidentally biting my tongue while
+trying to talk about types in C++ and Haskell has been a common
+occurance for me. The bliss I've experienced in Python and Haskell
+when not having to mention types at all is something I'd like to
+continue.
 
 \item Whitespace is significant. Python lets you declare blocks using
 colons and indented lines---for a few of its keywords. Cottontail lets
@@ -76,11 +80,12 @@ Haskell and stringing together pure combinators can go a long way
 towards consise code. Even in C\#, I can enjoy full days without
 having to use a for-loop.
 
-\item Execution is concatenative. I'm a fan of ML's partial
+\item Expressions are concatenative. I'm a fan of Haskell's partial
 application, but the calculus of operators (on par with Perl's) makes
-my head spin. Concatenative programming (inspired by Forth) provides a
-very nice solution to both function chaining and point-free
-programming. As a bonus, gives a simple and consistent syntax.
+my head spin. Concatenative programming, inspired by Forth and the RPN
+calculator, provides a very nice solution to both function chaining
+and point-free programming. As a bonus, it gives a simple and
+consistent syntax.
 
 \item Data is simple. I'll admit I was swayed by Douglas Hofstadter's
 arguments in favour of modeling data using prototypes. And after using
@@ -91,23 +96,24 @@ heirarchies.
 to explain to you the virtues of declaring objects on the stack and
 passing them to other procedures as references, or better yet,
 constant references. Cottontail makes these decisions on its own, but
-the result should be very few cycles spend on garbage collection.
+the result should still be very few cycles spent on garbage
+collection.
 
 \item Errors are expected. There will be software bugs. Cottontail
 tries to learn a few tricks from Erlang for the error-recovery
 systems that it provides.
 
 \item Small code is an objective. The combination of inferred types,
-generic programming, and a functional style are intended to bring
+generic programming, and a functional style are intended to bring you
 dramatic simplifications and reductions in code. There's a reason why
-Allan Kay is trying to build a 20K computer system that can be
-printed in a 300 page book. There's also a reason why Steve Yegge
-\cite{500K} finds his 500K game is already 5 times too large.
+Allan Kay is trying to build a 20K computer system that can be printed
+in a 300 page book. There's also a reason why Steve Yegge \cite{500K}
+finds his 500K game is already 5 times too large.
 
 \item Scripting is the default. When I'm working on a game, I want
 immediate feedback about what effect my changes have. This means
 running the new code without closing or even reseting a running game.
-Besides this productivity boost in this scenario, Cotttontail tries to
+Besides the productivity boost in this scenario, Cotttontail tries to
 be a friendly scripting language that can be incorporated into any
 level editor.
 
@@ -115,14 +121,20 @@ level editor.
 computers without upgrading, even as new software slows down their
 systems. But I know how impressive it can be to see code push hardware
 to its limit. Along this vein, Cottontail it aims to beat the
-performance of C++ in game programming in memory usage and execution
+performance of C++'s game programming in memory usage and execution
 speed.
 
 \end{itemize}
 
+With the history completed, and a superficial feature-list out of the
+way, I hope you have a sense of Cottontail's character, and where it
+stands in relation to other programming languages. This way, you'll
+know a bit about what you're bargaining for as we dive into learning
+the language.
+
 \section{Learning Cottontail}
 
-So, we start off in Cottontail with the REPL. The read-eval-print loop
+We start off in Cottontail with the REPL. The read-eval-print loop
 is a staple of interactive scripting languages, and it will help you
 find your feet without needing to open an IDE and without writing a
 Makefile.

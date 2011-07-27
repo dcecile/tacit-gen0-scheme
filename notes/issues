@@ -1,5 +1,6 @@
 Fundamental:
 - releasing
+- the core language requires a large set of functional-programming semantics: tail calls, closrues, copy-on-write, pointers...
 
 Globalization:
 - accurate translations (Japanese/French)
@@ -83,6 +84,7 @@ Concurrency/parallelism:
 
 Syntax:
 - control-flow keywords and shadowing (eg. run, else...)
+- flow-style needs to be weeded out, and a sound syntax determined
 - bland syntax (try highlighting)
 - backwards lists (rev fn?)
   - eg. reading order joining:
@@ -199,5 +201,4 @@ Meta-platform:
 - resource management
 - ^C interrupt, at least for infinite REPL loops
 - generate ELF symbols for using oprofile (see CCL)
-- functions for pointfree postfix, to work around the lack of
-  mutable caller stack (eg. when-dup)
+- functions for pointfree postfix, to work around the lack of mutable caller stack (eg. when-dup)

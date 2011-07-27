@@ -1,0 +1,19 @@
+Integral tech that I still don't get:
+- Coroutines
+- Delimited continuations
+- Capability-based security
+- Dataflow and reactive concurrency
+- Lisp macros
+- Performance profiling
+- Interactive debuggers
+
+Related technology that I won't pay attention to:
+- Garbage collection
+- Hindley-Millner type inference
+- GPU shader languages
+- High concurrency I/O (including epoll and SleepEx)
+- Untrusted code (capabilities, and time/space isolation)
+
+Unknown tech:
+- Extensible records, http://legacy.cs.uu.nl/daan/download/papers/scopedlabels.pdf
+- Iteratee, http://themonadreader.files.wordpress.com/2010/05/issue16.pdf

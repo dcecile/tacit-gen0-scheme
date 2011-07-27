@@ -4,10 +4,9 @@ essential syntax:
 [ ] delay
 = declaration, modificaiton
 &= modification
-" " string
+" " interpolated string
 """ """ literal string
 [[ ]] interpolation
-@ module
 . module path
 : whitespace delay
 _ insertion marker

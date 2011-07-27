@@ -1,0 +1,113 @@
+\chapter{Aspirations}
+
+This chapter begins the description of Cottontail from an
+implementor's point of view. It is a series of requirements, budgets,
+and design decisions. Although general users of the language may
+benefit from this detailed description, its reading should not be
+required for writing Cottontail programs.
+
+
+\section{Demonstration}
+
+\begin{ccode}
+% At its core, Cottontail tries to be a plain language
+
+% Expressions written in postfix form
+distance =
+  speed time *
+    % Whitespace is encouraged
+    0.5 acceleration time 2 ** *
+    +
+
+% Functions can be specified with or without parameters
+square x == x 2 **
+cube == 3 **
+
+% Colons can be substituted for brackets
+[1 2 8] ls
+  [x -> x say] each
+[1.6e1 0x0020 0064] ls
+  each: x ->
+    x say
+
+% Underscores can be placeholders for colons
+_ ls [say] each:
+  7 8
+  9
+
+% Loops are done with lambdas
+1 10 from-to
+  map: 3 *
+  filter: x ->
+    x 2 mod 0 eq
+  each: say
+
+% Or recursion can be used for looping
+count-down x ==
+  when:
+    x 0 eq,
+      "done" say
+    else,
+      x say
+      x 1 - count-down
+
+%[% Block comments
+  %[% are %]% %]% "recursive" say
+
+% Records look like variable assignment
+person = mk:
+  name = "Fred"
+  age = current-year 1_953 -
+
+% Member assignment has no side effects
+fred = person
+person.name = "Joe"
+fred.name say
+
+% Unless pointers are used
+person = person xtn:
+  job = "Clerk" !ref
+joe = person
+person.job!* = "Boss"
+joe.job* say
+
+% Overloading is implied
+say person ==
+  % String interpolation works with any expression
+  "Hi, I'm [[person.name "!" cat]]" say
+
+% And that's it, except for some metaprogramming glue sprinkled in
+\end{ccode}
+
+
+\section{Character}
+
+Cottontail exists because C++ can't be used to script video games. A
+flexible notation keeps the language nimble enough to be used for
+scripting, while generic types make it fast enough for good
+framerates. The result is a confused language, trying to be two things
+at once. But through its confusion, it will not give up its
+responsibility to fulfil both roles. A lot of the meaning of a
+Cottontail program is in between the lines. The language works hard so
+that the programmer can focus on creativity.
+
+As every language must, Cottontail focuses on a few key ideas. Its
+syntax mimics the mundane parts of Python, while it uses reverse
+Polish notation to decimate precedence rules and expression nesting.
+From Haskell, it adopts a grudge against side effects; although it
+favours immediate evaluation and avoids shared data. Its preprocessor
+and metaprogramming system is just a brute force compile-time
+evaluator. And its generics and function overloading are loosely
+inspired by the success of C++. These facets taken together form the
+basis for Cottontail's stubborn character. Put together, they are how
+the language tries to be a high-performance scripting language.
+
+% Performance
+% Interactivity
+% Microscalability
+% Growth
+% Vocabulary
+% Genericism
+% Referential transparency
+% Investigation
+% Translation
