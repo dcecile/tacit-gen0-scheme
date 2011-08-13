@@ -1,4 +1,4 @@
-shell: Makefile tinyscheme-src tinyscheme-bin.c
+tinyscheme-bin: Makefile tinyscheme-src tinyscheme-bin.c
 	gcc -o tinyscheme-bin \
           -std=gnu99 \
           -DSTANDALONE=0 \

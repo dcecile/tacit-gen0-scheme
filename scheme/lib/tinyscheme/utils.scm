@@ -125,3 +125,16 @@
   (def result (code))
   (set! *error-hook* old-handler)
   result)
+
+(def (load-relative path)
+  (def current (currently-loading-file))
+  (def dir
+    (list->string
+      (reverse
+        (split-at
+          (lambda (x) (eqv? x #\/))
+          (reverse (string->list current))
+          (lambda (file dir) dir)
+          (lambda () '(#\.))))))
+  (def loading (string-append dir "/" path))
+  (load loading))

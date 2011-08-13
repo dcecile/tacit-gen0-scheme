@@ -50,6 +50,12 @@ pointer write_binary(scheme *sc, pointer args) {
     return sc->NIL; }
   return sc->vptr->mk_integer(sc, written); }
 
+// Currently loading file
+pointer currently_loading_file(scheme *sc, pointer args) {
+  return sc->vptr->mk_string(sc,
+    sc->load_stack[sc->file_i].rep.stdio.filename);
+}
+
 // Entry point
 int main(int argc, char *argv[]) {
 
@@ -64,11 +70,16 @@ int main(int argc, char *argv[]) {
   sc->vptr->scheme_define(
     sc,
     sc->global_env,
-    sc->vptr->mk_symbol(sc,"write-binary"),
+    sc->vptr->mk_symbol(sc, "write-binary"),
     sc->vptr->mk_foreign_func(sc, write_binary));
-  scheme_set_output_port_file(sc, stdout);
+  sc->vptr->scheme_define(
+    sc,
+    sc->global_env,
+    sc->vptr->mk_symbol(sc, "currently-loading-file"),
+    sc->vptr->mk_foreign_func(sc, currently_loading_file));
 
   // Load Scheme code
+  scheme_set_output_port_file(sc, stdout);
   for (int i = 1; i < argc; i++) {
 
     // Evaluate a string
