@@ -202,3 +202,4 @@ Meta-platform:
 - ^C interrupt, at least for infinite REPL loops
 - generate ELF symbols for using oprofile (see CCL)
 - functions for pointfree postfix, to work around the lack of mutable caller stack (eg. when-dup)
+- profiling like RAD Telemetry http://www.eveonline.com/devblog.asp?a=blog&bid=940

@@ -5,6 +5,9 @@ performance/genericism:
   Ooc: http://ooc-lang.org/
   Orc: http://code.entropywave.com/projects/orc/
 
+static assumptions:
+  ParaSail: http://parasail-programming-language.blogspot.com/
+
 interactive:
   Factor
   Circa
