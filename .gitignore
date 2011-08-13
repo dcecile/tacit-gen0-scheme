@@ -10,5 +10,5 @@
 /book/*.pdf
 /book/*.toc
 /book/*.xdv
-/scheme/shell
-/scheme/tinyscheme
+/scheme/bin/tinyscheme
+/scheme/bin/tinyscheme-src

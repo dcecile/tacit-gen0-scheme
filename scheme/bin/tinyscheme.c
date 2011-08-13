@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#include "tinyscheme/scheme.h"
-#include "tinyscheme/scheme-private.h"
+#include "tinyscheme-src/scheme.h"
+#include "tinyscheme-src/scheme-private.h"
 
 pointer write_binary(scheme *sc, pointer args) {
   if (args == sc->NIL

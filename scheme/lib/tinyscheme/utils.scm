@@ -86,9 +86,6 @@
     value
     props))
 
-(def (has?~ object prop)
-  (assq prop object))
-
 (define-macro (resolves-to object . tests)
   `(case (:* ,object type)
     ,@(map
@@ -111,15 +108,6 @@
     (else
       (filter f (cdr x)))))
 
-(def (contains? f x)
-  (cond
-    ((null? x)
-      #f)
-    ((f (car x))
-      #t)
-    (else
-      (contains? f (cdr x)))))
-
 (def (split-at f x found not-found)
   (def (rec x y)
     (cond
@@ -131,52 +119,9 @@
         (rec (cdr x) (cons (car x) y)))))
   (rec x '()))
 
-(def (say . args)
-  (apply display args)
-  (newline))
-
 (def (with-error-handler handler code)
   (def old-handler *error-hook*)
   (set! *error-hook* handler)
   (def result (code))
   (set! *error-hook* old-handler)
   result)
-
-(def (generic-repl read eval-print prompt)
-  (display prompt)
-  (def obj (read))
-  (cond
-    ((not (eof-object? obj))
-      (call/cc
-        (lambda (done)
-          (with-error-handler
-            (lambda errors
-              (map
-                (lambda (e)
-                  (display e)
-                  (display " "))
-                errors)
-              (done '()))
-            (lambda ()
-              (eval-print obj)))))
-      (newline)
-      (generic-repl read eval-print prompt))
-    (else (newline))))
-
-(def (repl prompt env)
-  (generic-repl
-    read
-    (lambda (object)
-      (write (eval object env)))
-    prompt))
-
-(def (read-text filename)
-  (call-with-input-file
-    filename
-    (lambda (port)
-      (def (rec)
-        (def next (read-char port))
-        (cond
-          ((eof-object? next) '())
-          (else (cons next (rec)))))
-      (rec))))
