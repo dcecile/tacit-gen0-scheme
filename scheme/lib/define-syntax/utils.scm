@@ -9,8 +9,8 @@
 
 (define-syntax def
   (syntax-rules ()
-    ((_ (s ...) b ...)
-      (define (s ...)
+    ((_ s b ...)
+      (define s
         (def-list (b ...) begin)))))
 
 (define-syntax def-list
@@ -44,6 +44,7 @@
         k ... (ab ...)))))
 
 
+(define (unused)
 (define (t s)
   ;(display (expand s)) (newline)
   (display (eval `(begin ,s (a)))) (newline))
@@ -93,4 +94,5 @@
           (display k) (newline) (rec (+ k 1)))
         (else 'done)))
     (rec 3))
+)
 )

@@ -1,11 +1,11 @@
-shell: Makefile tinyscheme-src tinyscheme.c
-	gcc -o tinyscheme \
+shell: Makefile tinyscheme-src tinyscheme-bin.c
+	gcc -o tinyscheme-bin \
           -std=gnu99 \
           -DSTANDALONE=0 \
           -DUSE_INTERFACE=1 \
           -DUSE_MATH=0 \
           -O3 \
-          tinyscheme.c \
+          tinyscheme-bin.c \
           tinyscheme-src/scheme.c
 
 TINY_VER = 1.40

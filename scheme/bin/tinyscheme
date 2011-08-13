@@ -10,9 +10,11 @@ my $end = first { $dirs[$_] eq 'scheme' } (reverse 0..$#dirs);
 @dirs = @dirs[0 .. $end];
 my $root = catdir @dirs;
 
-system 'csi', '-q', '-b',
-  '-e', '(define (main) (void))',
-  (catfile $root, qw(lib define-syntax utils.scm)),
+my $bin = (catfile $root, qw(bin tinyscheme-bin));
+system $bin,
+  (catfile $root, qw(bin tinyscheme-src init.scm)),
+  '-e', '(define (main) \'())',
+  (catfile $root, qw(lib tinyscheme utils.scm)),
   (catfile $root, qw(lib utils.scm)),
   @ARGV,
   '-e', '(main)';
