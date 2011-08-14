@@ -87,6 +87,13 @@
     (else
       (filter f (cdr x)))))
 
+(def (foldl f v x)
+  (cond
+    ((null? x)
+      v)
+    (else
+      (foldl f (f (car x) v) (cdr x)))))
+
 (def (with-error-handler handler code)
   (def old-handler *error-hook*)
   (set! *error-hook* handler)
@@ -101,17 +108,17 @@
 
 (def (void) '())
 
-(define-macro (load-relative path)
+(define-macro (use name)
+  `(eval ,(utils/load-quoted name)))
+
+(def (utils/current-load-dir)
   (def current (currently-loading-file))
-  (def dir
-    (list->string
-      (reverse
-        (split-at
-          (lambda (x) (eqv? x #\/))
-          (reverse (string->list current))
-          (lambda (file dir) dir)
-          (lambda () '(#\.))))))
-  (def loading (string-append dir "/" path))
-  `(load ,loading))
+  (list->string
+    (reverse
+      (split-at
+        (lambda (file dir) (cons #\/ dir))
+        (lambda () '(#\/ #\.))
+        (lambda (x) (eqv? x #\/))
+        (reverse (string->list current))))))
 
 (def exit quit)

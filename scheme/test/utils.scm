@@ -1,4 +1,4 @@
-(load-relative "./check.scm")
+(use ./check)
 
 (def check (begin-check "utils"))
 

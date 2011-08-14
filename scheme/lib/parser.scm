@@ -91,12 +91,12 @@
   (def next (cdr tokens))
   (def (tokens-contain? s yes no)
     (split-at
+      yes
+      no
       (lambda (t) (and
         (eq? t::type 'symbol)
         (equal? t::value (string->list s))))
-      current::tokens
-      yes
-      no))
+      current::tokens))
   (tokens-contain? "=="
     (lambda (sig body)
       (parse-declare

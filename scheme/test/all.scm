@@ -1,1 +1,1 @@
-(load-relative "./utils.scm")
+(use ./utils)

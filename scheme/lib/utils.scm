@@ -79,7 +79,7 @@
       (rec))))
 
 ; Redefinition with more useful parameters
-(def (split-at f x found not-found)
+(def (split-at found not-found f x)
   (def (rec x y)
     (cond
       ((null? x)
@@ -89,6 +89,24 @@
       (else
         (rec (cdr x) (cons (car x) y)))))
   (rec x '()))
+
+(def (split f x)
+  (def (rec x r)
+    (split-at
+      (lambda (a b)
+        (rec b (cons a r)))
+      (lambda ()
+        (reverse (cons x r)))
+      f
+      x))
+  (rec x '()))
+
+(def (join s x)
+  (foldl
+    (lambda (a b)
+      (append b (list s) a))
+    (car x)
+    (cdr x)))
 
 ; Mutable boxes (already exists in Racket, redefined here)
 (def (box value)
@@ -123,3 +141,28 @@
     l))
 
 (def (id x) x)
+
+; Naive modules
+(def utils/currently-loaded (box '()))
+(def (utils/load-quoted symbol)
+  (def full-path (string-append
+    (utils/current-load-dir)
+    (symbol->string symbol)
+    ".scm"))
+  (def abs-path (list->string
+    (join #\/
+      (filter
+        (lambda (x) (not (equal? x '(#\.)))) ; Naive absolute path, only strips single dots
+        (split
+          (lambda (x) (eqv? x #\/))
+          (string->list full-path))))))
+  (cond
+    ((not (member
+        abs-path
+        (unbox utils/currently-loaded)))
+      (set-box!
+        utils/currently-loaded
+        (cons abs-path (unbox utils/currently-loaded)))
+      `(load ,abs-path))
+    (else
+      '(void))))

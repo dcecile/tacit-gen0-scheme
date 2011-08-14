@@ -12,6 +12,7 @@ my $root = catdir @dirs;
 
 exec 'racket',
   '-e', '(define (main) (void))',
+  '-f', (catfile $root, qw(lib racket utils.scm)),
   '-f', (catfile $root, qw(lib define-syntax utils.scm)),
   '-f', (catfile $root, qw(lib utils.scm)),
   '-f', @ARGV,
