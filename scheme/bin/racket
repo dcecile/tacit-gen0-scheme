@@ -10,9 +10,9 @@ my $end = first { $dirs[$_] eq 'scheme' } (reverse 0..$#dirs);
 @dirs = @dirs[0 .. $end];
 my $root = catdir @dirs;
 
-system 'racket',
+exec 'racket',
   '-e', '(define (main) (void))',
   '-f', (catfile $root, qw(lib define-syntax utils.scm)),
   '-f', (catfile $root, qw(lib utils.scm)),
   '-f', @ARGV,
-  '-e', '(main)';
+  '-e', '(begin (main) (void))';

@@ -54,40 +54,19 @@
     (mk ,@props)
     ,obj))
 
-(def (*colon-hook* member object)
-  (cond
-    ((list? object)
-      (def found (assq member object))
-      (cond
-        (found
-          (cdr found))
-        (else
-          (*error-hook* "property not found:" member))))
-    ((environment? object)
-      (eval member object))
-    (else
-      (*error-hook* "invalid property object" object member))))
-
-(define-macro (:* expr . props)
+(define-macro (: expr . props)
   (let (
     (value (gensym)))
     `(let (
       (,value ,expr))
       ,(foldr
         (lambda (value prop)
-          `(*colon-hook* (quote ,prop) ,value))
+          `(utils/get-property ,value (quote ,prop)))
         value
         props))))
 
-(def (:*~ value . props)
-  (foldr
-    (lambda (value prop)
-      (*colon-hook* prop value))
-    value
-    props))
-
 (define-macro (resolves-to object . tests)
-  `(case (:* ,object type)
+  `(case (: ,object type)
     ,@(map
       (lambda (test)
         (def type (car test))
@@ -108,17 +87,6 @@
     (else
       (filter f (cdr x)))))
 
-(def (split-at f x found not-found)
-  (def (rec x y)
-    (cond
-      ((null? x)
-        (not-found))
-      ((f (car x))
-        (found (reverse y) (cdr x)))
-      (else
-        (rec (cdr x) (cons (car x) y)))))
-  (rec x '()))
-
 (def (with-error-handler handler code)
   (def old-handler *error-hook*)
   (set! *error-hook* handler)
@@ -126,7 +94,14 @@
   (set! *error-hook* old-handler)
   result)
 
-(def (load-relative path)
+(def utils/old-error error)
+(set! *error-hook* utils/old-error)
+
+(def (error . x) (apply *error-hook* x))
+
+(def (void) '())
+
+(define-macro (load-relative path)
   (def current (currently-loading-file))
   (def dir
     (list->string
@@ -137,4 +112,6 @@
           (lambda (file dir) dir)
           (lambda () '(#\.))))))
   (def loading (string-append dir "/" path))
-  (load loading))
+  `(load ,loading))
+
+(def exit quit)

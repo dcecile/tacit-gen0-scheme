@@ -11,7 +11,7 @@ my $end = first { $dirs[$_] eq 'scheme' } (reverse 0..$#dirs);
 my $root = catdir @dirs;
 
 my $bin = (catfile $root, qw(bin tinyscheme-bin));
-system $bin,
+exec $bin,
   (catfile $root, qw(bin tinyscheme-src init.scm)),
   '-e', '(define (main) \'())',
   (catfile $root, qw(lib tinyscheme utils.scm)),

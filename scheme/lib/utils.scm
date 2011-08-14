@@ -1,5 +1,30 @@
-(def (has?~ object prop)
-  (assq prop object))
+(def (utils/get-property object member)
+  (cond
+    ((list? object)
+      (def found (assq member object))
+      (cond
+        (found
+          (cdr found))
+        (else
+          (error "property not found:" member))))
+    (else
+      (error "invalid property object" object member))))
+
+(def (:& value . props)
+  (foldr
+    (lambda (value prop)
+      (utils/get-property prop value))
+    value
+    props))
+
+(def (any->boolean x)
+  (cond
+    (x #t)
+    (else #f)))
+
+(def (has?& object prop)
+  (any->boolean
+    (assq prop object)))
 
 (def (contains? f x)
   (cond
@@ -52,3 +77,49 @@
           ((eof-object? next) '())
           (else (cons next (rec)))))
       (rec))))
+
+; Redefinition with more useful parameters
+(def (split-at f x found not-found)
+  (def (rec x y)
+    (cond
+      ((null? x)
+        (not-found))
+      ((f (car x))
+        (found (reverse y) (cdr x)))
+      (else
+        (rec (cdr x) (cons (car x) y)))))
+  (rec x '()))
+
+; Mutable boxes (already exists in Racket, redefined here)
+(def (box value)
+  (vector value))
+(def (unbox box)
+  (vector-ref box 0))
+(def (set-box! box value)
+  (vector-set! box 0 value))
+
+(def (uncons y n l)
+  (cond
+    ((null? l)
+      (n))
+    (else
+      (y (car l) (cdr l)))))
+
+(def (each f l)
+  (uncons
+    (lambda (x xs)
+      (f x)
+      (each f xs))
+    (lambda ()
+      (void))
+    l))
+
+(def (any? f l)
+  (uncons
+    (lambda (x xs)
+      (or (f x) (any? f xs)))
+    (lambda ()
+      #f)
+    l))
+
+(def (id x) x)
