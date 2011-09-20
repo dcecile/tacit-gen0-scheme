@@ -5,7 +5,7 @@ Serialization: upc, libyaml
 DB: leveldb, tdb
 Compression: zlib, bsdtar, snappy
 FFI: libffi
-I/O: 0mq, libev, PhysicsFS
+I/O: 0mq, libev, PhysicsFS, libuv
 Unicode: ICU
 Numbers: GMP, MPFR
 GC: gc
