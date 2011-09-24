@@ -78,8 +78,10 @@ int main(int argc, char *argv[]) {
     sc->vptr->mk_symbol(sc, "currently-loading-file"),
     sc->vptr->mk_foreign_func(sc, currently_loading_file));
 
-  // Load Scheme code
+  // Give Scheme standard output
   scheme_set_output_port_file(sc, stdout);
+
+  // Load Scheme code
   for (int i = 1; i < argc; i++) {
 
     // Evaluate a string
@@ -94,6 +96,12 @@ int main(int argc, char *argv[]) {
         return 1; }
       scheme_load_named_file(sc, file, argv[i]);
       fclose(file); } }
+
+  // Give Scheme standard input
+  scheme_set_input_port_file(sc, stdin);
+
+  // Run the main function
+  scheme_apply0(sc, "main");
 
   // Exit
   int retcode = sc->retcode;

@@ -16,5 +16,4 @@ exec $bin,
   '-e', '(define (main) \'())',
   (catfile $root, qw(lib tinyscheme utils.scm)),
   (catfile $root, qw(lib utils.scm)),
-  @ARGV,
-  '-e', '(main)';
+  @ARGV;

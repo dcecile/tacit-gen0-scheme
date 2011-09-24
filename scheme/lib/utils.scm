@@ -39,32 +39,63 @@
   (apply display args)
   (newline))
 
-(def (generic-repl read eval-print prompt)
-  (display prompt)
-  (def obj (read))
-  (cond
-    ((not (eof-object? obj))
-      (call/cc
-        (lambda (done)
-          (with-error-handler
-            (lambda errors
-              (map
-                (lambda (e)
-                  (display e)
-                  (display " "))
-                errors)
-              (done '()))
-            (lambda ()
-              (eval-print obj)))))
-      (newline)
-      (generic-repl read eval-print prompt))
-    (else (newline))))
+(def (with-output-string code)
+  (def port (open-output-string))
+  (code port)
+  (get-output-string port))
 
-(def (repl prompt env)
+(def (think object)
+  (with-output-string
+    (lambda (port)
+      (display object port))))
+
+(def (utils/catch-and-print code on-error on-success)
+  (catch-exception
+    code
+    (lambda (exception)
+      (say (exception->string exception))
+      (on-error))
+    on-success))
+
+(def (generic-repl read eval-print prompt)
+  (def (again)
+    (generic-repl read eval-print prompt))
+
+  ; Show the prompt
+  (display prompt)
+
+  ; Try to read some input
+  (utils/catch-and-print
+    (lambda ()
+      (read))
+
+    ; If that fails, try again
+    again
+
+    (lambda (obj)
+      (cond
+
+        ; If there is no more input, just stop nicely
+        ((eof-object? obj)
+          (newline))
+
+        ; Otherwise, take the input, and try to evaluate and print it
+        (else
+          (utils/catch-and-print
+            (lambda ()
+              (eval-print obj))
+            void
+            void)
+
+          ; Regardless of errors, keep looping
+          (again))))))
+
+(def (scheme-repl prompt)
   (generic-repl
     read
     (lambda (object)
-      (write (eval object env)))
+      (write (eval object))
+      (newline))
     prompt))
 
 (def (read-text filename)
@@ -79,13 +110,13 @@
       (rec))))
 
 ; Redefinition with more useful parameters
-(def (split-at found not-found f x)
+(def (split-at on-not-found on-found f x)
   (def (rec x y)
     (cond
       ((null? x)
-        (not-found))
+        (on-not-found))
       ((f (car x))
-        (found (reverse y) (cdr x)))
+        (on-found (reverse y) (cdr x)))
       (else
         (rec (cdr x) (cons (car x) y)))))
   (rec x '()))
@@ -93,10 +124,10 @@
 (def (split f x)
   (def (rec x r)
     (split-at
-      (lambda (a b)
-        (rec b (cons a r)))
       (lambda ()
         (reverse (cons x r)))
+      (lambda (a b)
+        (rec b (cons a r)))
       f
       x))
   (rec x '()))
@@ -116,7 +147,7 @@
 (def (set-box! box value)
   (vector-set! box 0 value))
 
-(def (uncons y n l)
+(def (uncons n y l)
   (cond
     ((null? l)
       (n))
@@ -125,19 +156,19 @@
 
 (def (each f l)
   (uncons
+    (lambda ()
+      (void))
     (lambda (x xs)
       (f x)
       (each f xs))
-    (lambda ()
-      (void))
     l))
 
 (def (any? f l)
   (uncons
-    (lambda (x xs)
-      (or (f x) (any? f xs)))
     (lambda ()
       #f)
+    (lambda (x xs)
+      (or (f x) (any? f xs)))
     l))
 
 (def (id x) x)

@@ -38,6 +38,8 @@
 (def (main)
   (def (rec modules failures)
     (uncons
+      (lambda ()
+        (reverse failures))
       (lambda (current next)
         (display (check/bold (: current name))) (display "\n")
         (each
@@ -49,8 +51,6 @@
           (reverse (unbox (: current runs))))
         (display "\n")
         (rec next (cons (unbox check/current-run-failed) failures)))
-      (lambda ()
-        (reverse failures))
       modules))
   (def failures
     (rec (reverse (unbox check/modules)) '()))

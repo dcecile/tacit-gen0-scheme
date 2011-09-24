@@ -1,5 +1,4 @@
-(load "tinyscheme/init.scm")
-(load "utils.scm")
+;(use ./tokenize)
 
 (def (main)
-  (repl "ts> " (current-environment)))
+  (scheme-repl "scm> "))
