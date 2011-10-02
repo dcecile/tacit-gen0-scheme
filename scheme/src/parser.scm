@@ -144,7 +144,7 @@
     (*error-hook*
       (string-append
         filename ", "
-        line ": " 
+        line ": "
         message)))
   (cond
     ((null? tokens)

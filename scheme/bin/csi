@@ -12,8 +12,9 @@ my $root = catdir @dirs;
 
 exec 'csi', '-q', '-b',
   '-e', '(define (main) (void))',
-  (catfile $root, qw(lib define-syntax utils.scm)),
-  (catfile $root, qw(lib chicken utils.scm)),
-  (catfile $root, qw(lib utils.scm)),
+  (catfile $root, qw(src utils platform__chicken.scm)),
+  (catfile $root, qw(src utils use__chicken.scm)),
+  (catfile $root, qw(src utils use__define-syntax.scm)),
+  (catfile $root, qw(src utils use.scm)),
   @ARGV,
   '-e', '(main)';

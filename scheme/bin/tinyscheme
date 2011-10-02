@@ -12,8 +12,9 @@ my $root = catdir @dirs;
 
 my $bin = (catfile $root, qw(bin tinyscheme-bin));
 exec $bin,
-  (catfile $root, qw(bin tinyscheme-src init.scm)),
   '-e', '(define (main) \'())',
-  (catfile $root, qw(lib tinyscheme utils.scm)),
-  (catfile $root, qw(lib utils.scm)),
+  (catfile $root, qw(bin tinyscheme-src init.scm)),
+  (catfile $root, qw(src utils platform__tinyscheme.scm)),
+  (catfile $root, qw(src utils use__tinyscheme.scm)),
+  (catfile $root, qw(src utils use.scm)),
   @ARGV;

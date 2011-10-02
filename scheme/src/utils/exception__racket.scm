@@ -1,7 +1,3 @@
-(def (utils/current-load-dir)
-  (path->string
-    (current-load-relative-directory)))
-
 (def (utils/truncate-path path)
   (def path (path->string path))
   (def length (string-length path))

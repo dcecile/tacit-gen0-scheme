@@ -1,3 +1,5 @@
+(use ../src/utils/all)
+
 (def check/modules (box '()))
 
 (def (begin-check module-name)

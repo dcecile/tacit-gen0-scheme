@@ -1,19 +1,3 @@
-(define-syntax mk
-  (syntax-rules ()
-    ((_)
-      '())
-    ((_ (a b) c ...)
-      (cons
-        (cons (quote a) b)
-        (mk c ...)))))
-
-(define-syntax :
-  (syntax-rules ()
-    ((_ a b)
-      (utils/get-property a (quote b)))
-    ((_ a b c ...)
-      (: (: a b) c ...))))
-
 (define-syntax def
   (syntax-rules ()
     ((_ s b ...)
@@ -49,8 +33,3 @@
       (def-list
         (c ...)
         k ... (ab ...)))))
-
-(define-syntax use
-  (syntax-rules ()
-    ((~ s)
-      (eval (utils/load-quoted (quote s))))))
