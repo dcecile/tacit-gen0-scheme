@@ -1,6 +1,6 @@
-(use ./check)
+(use ../test/check)
 
-(def check (begin-check "utils"))
+(def check (begin-check "prototype"))
 
 (check "basic property object" (lambda ()
   (def obj

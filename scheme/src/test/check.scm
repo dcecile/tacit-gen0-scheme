@@ -1,4 +1,4 @@
-(use ../src/utils/all)
+(use ../utils/all)
 
 (def check/modules (box '()))
 
