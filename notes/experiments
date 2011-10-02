@@ -1,5 +1,5 @@
 - write a physics-based game
-- write a POSIX OS, L4 kernel
+- write a POSIX OS, L4 kernel, with raw graphics access
 - run on a NanoNote Ben
 - compile to one standalone executable that doesn't need disk write access, for Linux and Windows
 - write fizzbuzz in Latin, Chinese, Devanagi scripts
