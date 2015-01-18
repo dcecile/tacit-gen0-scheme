@@ -17,3 +17,5 @@ Related technology that I won't pay attention to:
 Unknown tech:
 - Extensible records, http://legacy.cs.uu.nl/daan/download/papers/scopedlabels.pdf
 - Iteratee, http://themonadreader.files.wordpress.com/2010/05/issue16.pdf
+- Go serialization, http://blog.golang.org/2011/03/gobs-of-data.html
+- Suggestions on generics, http://research.swtch.com/2009/12/generic-dilemma.html
