@@ -1,0 +1,8 @@
+Features
+- recursive REPL access (non-console, etc.)
+- introspection APIs (compile or runtime)
+- hotswapping / recompile triggering
+- extensible static analysis (style, performance, etc.)
+- dynamic analysis (coverage, performance)
+- documentation generation
+- statistical benchmarking

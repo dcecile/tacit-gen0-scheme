@@ -1,0 +1,5 @@
+Integral tech that I still don't get:
+- Capability-based security
+
+Out-of-scope
+- Untrusted code (capabilities, and time/space isolation)

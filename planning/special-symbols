@@ -1,0 +1,216 @@
+Syntax elements:
+- comment %
+- block comment %[% %]%
+- delay [ ]
+- assignment =
+- modification &=
+- interpolated string " "
+- literal string """ """
+- interpolation [[ ]]
+- member .
+- module path /
+- module access /
+- block delay :
+- insertion marker _
+- lambda >
+- dereference *
+
+Local alternatives:
+  [ ( {
+  " ' 「
+  _ …
+  anything full-width
+
+Unused symbols:
+  ^
+  $
+  \
+  |
+  ?
+  !
+  >>
+  <
+  <<
+  #
+  ,
+  `
+  +
+  -
+  *
+  /
+  ;
+  @
+
+Summarized symbol table
+                 - = ; ' , . /   ! @ # $ % & * ( ) _ + : " ?
+  ko hangul ime  x x x x x x x   x x x x x x x x x x x x x x
+  he             x x x x x x x   x x x x x x x x x x x x x x
+  fr-CA          x x x x x x x   x x x x x x x x x x x x x x
+  ja-ime         x x x x x x     x x x x x x x x x x x x x x
+  es             x x x x x x x   x   x x x x x x x x x x x x
+  de             x x x x x x x   x   x x x x x x x x x x x x
+  ar             x x x x x x x   x x x x x     x x x x x x x
+  fr             x x x x x x x   x x x   x   x x x x x x x x
+  zh-pinyin-ime  x x x x x x x   x x x   x x x x x   x x x x
+  zh-bpmf-ime      x   x x       x x x x x x x x x x x x x x
+  dk             x x x x x x x   x   x   x x x x x x x x x x
+  ru             x x x   x x     x       x   x x x x x x x x
+  hi             x       x x         x x   x x x x          
+  ja-kana-ime    x       x x                             x  
+
+
+Verbose symbol table
+                 ` - = [ ] \ ; ' , . /   ~ ! @ # $ % ^ & * ( ) _ + { } | : " < > ?
+  ko hangul ime  x x x x x x x x x x x   x x x x x x x x x x x x x x x x x x x x x
+  he               x x x x x x x x x x   x x x x x x x x x x x x x x x x x x x x x
+  ja-ime         x x x       x x x x     x x x x x x x x x x x x x x x x x x x x x
+  ar               x x     x x x x x x     x x x x x x     x x x x x x x x x x x x
+  fr               x x x x   x x x x x   x x x x   x x   x x x x x x x   x x     x
+  zh-pinyin-ime  x x x       x x x x x   x x x x   x   x x x x   x x x x x x     x
+  zh-bpmf-ime    x   x x x     x x       x x x x x x   x x x x x x x x x x x x x x
+  fr-CA            x x     x x x x x x     x x x x x   x x x x x x       x x     x
+  es               x x       x x x x x     x   x x x   x x x x x x       x x     x
+  de               x x       x x x x x     x   x x x   x x x x x x       x x     x
+  dk               x x       x x x x x     x   x   x   x x x x x x       x x     x
+  ru               x x     x x   x x       x       x     x x x x x       x x     x
+  hi               x             x x           x x   x x x x x                    
+  ja-kana-ime      x             x x                                       x      
+
+Japanese (ja kana ime)
+- ゛ぬふあうえおやゆよわほほ
+  たていすかんなにらせ゜むろ
+  ちとしはきくまのりれゃ
+  つさそひこみもねるめ
+- をぬ゛ぁぅぇへぉヶゅょろれ
+  たてぃすヵんなにらせ「」ー
+  ちとしゎきくまのりけふ
+  っさそゐこみも、。・
+
+Chinese (zh bopomofo ime)
+- ｀ㄅㄉˇˋㄓˊ˙ㄚㄞㄢㄦ＝
+  ㄆㄊㄍㄐㄔㄗㄧㄛㄟㄣ「」、
+  ㄇㄋㄎㄑㄕㄘㄨㄜㄠㄤ‘
+  ㄈㄌㄏㄒㄖㄙㄩㄝㄡㄥ
+- ～！＠＃＄％……＆＊（）＿＋
+  QWERTYUIOP｛｝｜
+  ASDFGHJKL：“
+  ZXCVBNM＜＞？
+
+Russian (ru)
+- ё1234567890-=
+  йцукенгшщзхъ\
+  фывапролджэ
+  ячсмитьбю.
+- Ё!"№;%:?*()_+
+  ФЫВАПРОЛДЖЭ
+  ЯЧСМИТЬБЮ,
+
+Hindi (hi)
+- ॊ१२३४५६७८९०-
+  बहगदजडॉ
+  परकतचचट
+  मनवलस,.य
+- ऒऍ#$%^&*()ऋ
+  औऐआईऊभङघधझढञऑ
+  ओएअइउफऱखथछठ
+  ऎणऩऴळशष।य़
+
+French (fr)
+- ²&é"'(-è_çà)=
+  azertyuiop*
+  qsdfghjklmù
+  wxcvbn,;:!
+- ~234567890°+
+  AZERTYUIOPµ
+  QSDFGHJKLM%
+  WXCVBN?./§
+- ¬¹~#{[|`\^@]}
+  æ«€¶ŧ←↓→øþ¨¤`
+  @ßðđŋħjĸłµ^
+  ł»¢“”n´·
+
+Chinese (zh pinyin ime) (similar to canjie and jyutping)
+- ｀1234567890－＝
+  qwertyuiop「」、
+  asdfghjkl；‘
+  zxcvbnm，。／
+- ～！＠＃￥％……＆＊（）——＋
+  QWERTYUIOP｛｝｜
+  ASDFGHJKL：“
+  ZXCVBNM《》？
+
+German (de)
+- 1234567890ß
+  qwertzuiopü+#
+  asdfghjklöäyxcvbnm,.-
+- °!"§$%&/()=?
+  QWERTZUIOPÜ*'
+  YXCVBNM;:_
+
+Spanish (es)
+- º1234567890'¡
+  qwertyuiop +ç
+  asdfghjklñ
+  zxcvbnm,.-
+- ª!"·$%&/()=?¿
+  QWERTYUIOP *Ç
+  ASDFGHJKLÑ
+  ZXCVBNM;:_
+
+Danish (dk)
+- ½1234567890+
+  asdfghjklæø'
+  zxcvbnm,.-
+- §!"#¤%&/()=?
+  ASDFGHJKLÆØ*
+  ZXCVBNM;:_
+
+French (fr-CA multi)
+- /1234567890-=
+  qwertyuiopçà
+  asdfghjkl;è
+  zxcvbnm,.é
+- \!@#$%?&*()_+
+  QWERTYUIOPÇÀ
+  ASDFGHJKL:È
+  ZXCVBNM'"É
+
+Japanese (ja ime) (imeable 『【「{[〔［〈《＜<≪《〈≦ / ÷)
+- `1234567890ー=
+  qwertyuiop『』\
+　asdfghjkl;'
+　zxcvbnm、。・
+- 〜!@＃$%^&*()_+
+　QWERTYUIOP{}|
+　ASDFGHJKL:“
+　ZXCVBNM<>?
+
+Arabic (ar)
+- ذ1234567890-=
+  ضصثقفغعهخحجد\
+  شسيبلاتنمكط
+  ئءؤرﻻىةوزظ
+-  ّ!@#$%^&*)(_+
+  ﻹإ`÷×؛<>|
+  ][ﻷأـ،/:"
+  ~}{ﻵآ',.؟
+
+Hebrew (he)
+- ;1234567890-=
+  /'קראטוןםפ][\
+  שדגכעיחלךף,
+  זסבהנמצתץ.
+- ~!@#$%^&*)(_+
+  QWERTYUIOP}{|
+  ASDFGHJKL:"
+  ZXCVBNM><?
+
+Korean (ko hangul ime)
+- `1234567890-=
+  ㅂㅈㄷㄱㅅㅛㅑㅐㅔ[]\
+  ㅁㄴㅇㄹㅎㅗㅓㅏㅣ;'
+  ㅋㅌㅊㅍㅠㅜㅡ,./
+- ~!@#$%^&*()_+
+  ㅃㅉㄸㄲㅆYUIㅒㅖ{}|
+  ASDFGㅙㅝㅘㅚ:"
+  ZXCVㅟㅞㅢ<>?

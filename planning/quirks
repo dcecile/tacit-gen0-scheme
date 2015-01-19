@@ -6,7 +6,8 @@
 - purity: please no object webs
 - FFI: it's not a vacuum
 - interactive: pause the program, not the programmer
-- performance: no expressivity divides
+- compiler performance: no expressivity divides
+- program performance: startup, responsivity, throughput
 - values: local working set, independent copies
 - RPN: no operators, good partial application for HOFs, reading order transformations
 - scoped global state: monads and DSLs for the rest of us
@@ -14,3 +15,5 @@
 - no assignment, just binding: safe implicit variable declarations
 - compiler assumptions: a type system that uses regular values and functions
 - micro-scalability: write just what you need to add new code
+- fail fast: don't allow errors to compound
+- testability: a solution to bit rot

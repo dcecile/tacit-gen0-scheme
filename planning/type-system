@@ -1,0 +1,6 @@
+Unknown tech
+- Extensible records, http://legacy.cs.uu.nl/daan/download/papers/scopedlabels.pdf
+- Suggestions on generics, http://research.swtch.com/2009/12/generic-dilemma.html
+
+Out-of-scope
+- Hindley-Millner type inference

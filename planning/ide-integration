@@ -1,0 +1,8 @@
+Considerations
+- requiring project files (vs. just compiling/checking based on imports)
+- indication of namespace root (for running single files)
+
+Projects
+- Eclipse
+- QtCreator
+- Visual Studio
