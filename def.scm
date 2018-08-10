@@ -1,3 +1,7 @@
+; Why do any of this?
+; - definitions mid-expression
+; - redefine same name without nesting
+; - only one statement when running define
 (define-syntax def
   (syntax-rules ()
     ((_ s b ...)

@@ -4,6 +4,7 @@ Integral tech that I still don't get
 Relevant articles
   Why Events Are A Bad Idea, http://www.usenix.org/events/hotos03/tech/full_papers/vonbehren/vonbehren_html/index.html
   Why User Threads are Bad, http://dtrace.org/blogs/bmc/2008/11/03/concurrencys-shysters/
+  Parallel Processing with Promises, http://queue.acm.org/detail.cfm?id=2742696
 
 Out-of-scope
 - GPU shader languages
